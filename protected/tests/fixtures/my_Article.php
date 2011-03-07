@@ -1,0 +1,48 @@
+<?php
+
+return array(
+	/*
+	'sample1'=>array(
+		'user_id' => '',
+		'cat_id' => '',
+		'type_id' => '',
+		'area_id' => '',
+		'title' => '',
+		'style' => '',
+		'thumb' => '',
+		'keywords' => '',
+		'description' => '',
+		'order' => '',
+		'islink' => '',
+		'linkurl' => '',
+		'create_time' => '',
+		'create_ip' => '',
+		'update_time' => '',
+		'update_ip' => '',
+		'state' => '',
+		'hits' => '',
+		'comments' => '',
+	),
+	'sample2'=>array(
+		'user_id' => '',
+		'cat_id' => '',
+		'type_id' => '',
+		'area_id' => '',
+		'title' => '',
+		'style' => '',
+		'thumb' => '',
+		'keywords' => '',
+		'description' => '',
+		'order' => '',
+		'islink' => '',
+		'linkurl' => '',
+		'create_time' => '',
+		'create_ip' => '',
+		'update_time' => '',
+		'update_ip' => '',
+		'state' => '',
+		'hits' => '',
+		'comments' => '',
+	),
+	*/
+);

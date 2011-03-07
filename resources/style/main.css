@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+/* 内容 */
+.wrapper {width:400px; margin:0px auto; color:gray;}
+.list{margin:10px auto;}
+.item {border-bottom:5px solid red;}
+.border-green{border-bottom-color:green;}
+.border-yellow{border-bottom-color:yellow;}
+.border-blue{border-bottom-color:blue;}
+.border-gray{border-bottom-color:gray;}
+
+.friendlink {line-height:20px; word-wrap:break-word; word-break:keep-all;}
