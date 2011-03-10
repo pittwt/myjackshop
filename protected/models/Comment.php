@@ -1,26 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "{{attachment}}".
+ * This is the model class for table "{{comment}}".
  *
- * The followings are the available columns in table '{{attachment}}':
+ * The followings are the available columns in table '{{comment}}':
  * @property string $id
  * @property string $article_id
- * @property string $name
- * @property string $path
- * @property string $filetype
- * @property string $filesize
- * @property string $fileext
- * @property string $description
- * @property integer $ispic
+ * @property string $user_id
+ * @property string $nick
+ * @property string $content
  * @property string $create_time
  * @property string $create_ip
+ * @property integer $status
  */
-class Attachment extends CActiveRecord
+class Comment extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return Attachment the static model class
+	 * @return Comment the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -32,7 +29,7 @@ class Attachment extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{attachment}}';
+		return '{{comment}}';
 	}
 
 	/**
@@ -43,14 +40,15 @@ class Attachment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ispic', 'numerical', 'integerOnly'=>true),
-			array('article_id, filesize, create_time', 'length', 'max'=>10),
-			array('name, filetype, fileext', 'length', 'max'=>50),
-			array('path, description', 'length', 'max'=>255),
+			array('status', 'numerical', 'integerOnly'=>true),
+			array('article_id', 'length', 'max'=>45),
+			array('user_id, create_time', 'length', 'max'=>10),
+			array('nick', 'length', 'max'=>50),
 			array('create_ip', 'length', 'max'=>15),
+			array('content', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, article_id, name, path, filetype, filesize, fileext, description, ispic, create_time, create_ip', 'safe', 'on'=>'search'),
+			array('id, article_id, user_id, nick, content, create_time, create_ip, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,15 +71,12 @@ class Attachment extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'article_id' => 'Article',
-			'name' => 'Name',
-			'path' => 'Path',
-			'filetype' => 'Filetype',
-			'filesize' => 'Filesize',
-			'fileext' => 'Fileext',
-			'description' => 'Description',
-			'ispic' => 'Ispic',
+			'user_id' => 'User',
+			'nick' => 'Nick',
+			'content' => 'Content',
 			'create_time' => 'Create Time',
 			'create_ip' => 'Create Ip',
+			'status' => 'Status',
 		);
 	}
 
@@ -98,15 +93,12 @@ class Attachment extends CActiveRecord
 
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('article_id',$this->article_id,true);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('path',$this->path,true);
-		$criteria->compare('filetype',$this->filetype,true);
-		$criteria->compare('filesize',$this->filesize,true);
-		$criteria->compare('fileext',$this->fileext,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('ispic',$this->ispic);
+		$criteria->compare('user_id',$this->user_id,true);
+		$criteria->compare('nick',$this->nick,true);
+		$criteria->compare('content',$this->content,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('create_ip',$this->create_ip,true);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,

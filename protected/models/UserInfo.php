@@ -1,10 +1,10 @@
 <?php
 
 /**
- * This is the model class for table "{{UserInfo}}".
+ * This is the model class for table "{{userinfo}}".
  *
- * The followings are the available columns in table '{{UserInfo}}':
- * @property integer $user_id
+ * The followings are the available columns in table '{{userinfo}}':
+ * @property string $user_id
  * @property integer $area_id
  * @property string $birthday
  * @property integer $gender
@@ -15,11 +15,11 @@
  * @property string $msn
  * @property string $postcode
  */
-class UserInfo extends CActiveRecord
+class Userinfo extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
-	 * @return UserInfo the static model class
+	 * @return Userinfo the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -31,7 +31,7 @@ class UserInfo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{UserInfo}}';
+		return '{{userinfo}}';
 	}
 
 	/**
@@ -42,8 +42,9 @@ class UserInfo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'required'),
-			array('area_id, gender, user_id, postcode', 'numerical', 'integerOnly'=>true),
+			array('user_id, birthday', 'required'),
+			array('area_id, gender', 'numerical', 'integerOnly'=>true),
+			array('user_id, postcode', 'length', 'max'=>10),
 			array('portrait', 'length', 'max'=>255),
 			array('telphone, mobile, qq', 'length', 'max'=>20),
 			array('msn', 'length', 'max'=>50),
@@ -61,8 +62,6 @@ class UserInfo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
-			'area' => array(self::BELONGS_TO, 'Area', 'area_id'),
 		);
 	}
 
@@ -97,26 +96,17 @@ class UserInfo extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('user_id',$this->user_id,true);
-
 		$criteria->compare('area_id',$this->area_id);
-
 		$criteria->compare('birthday',$this->birthday,true);
-
 		$criteria->compare('gender',$this->gender);
-
 		$criteria->compare('portrait',$this->portrait,true);
-
 		$criteria->compare('telphone',$this->telphone,true);
-
 		$criteria->compare('mobile',$this->mobile,true);
-
 		$criteria->compare('qq',$this->qq,true);
-
 		$criteria->compare('msn',$this->msn,true);
-
 		$criteria->compare('postcode',$this->postcode,true);
 
-		return new CActiveDataProvider('UserInfo', array(
+		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
 		));
 	}

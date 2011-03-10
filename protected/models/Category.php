@@ -1,11 +1,11 @@
 <?php
 
 /**
- * This is the model class for table "{{Category}}".
+ * This is the model class for table "{{category}}".
  *
- * The followings are the available columns in table '{{Category}}':
- * @property integer $id
- * @property integer $parent_id
+ * The followings are the available columns in table '{{category}}':
+ * @property string $id
+ * @property string $parent_id
  * @property string $model
  * @property string $name
  * @property string $description
@@ -13,7 +13,7 @@
  * @property string $linkurl
  * @property string $template
  * @property integer $ismenu
- * @property integer $hits
+ * @property string $hits
  */
 class Category extends CActiveRecord
 {
@@ -31,7 +31,7 @@ class Category extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Category}}';
+		return '{{category}}';
 	}
 
 	/**
@@ -42,7 +42,8 @@ class Category extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('islink, ismenu, parent_id, hits', 'numerical', 'integerOnly'=>true),
+			array('islink, ismenu', 'numerical', 'integerOnly'=>true),
+			array('parent_id, hits', 'length', 'max'=>10),
 			array('model, name, template', 'length', 'max'=>50),
 			array('description, linkurl', 'length', 'max'=>255),
 			// The following rule is used by search().
@@ -68,7 +69,7 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Id',
+			'id' => 'ID',
 			'parent_id' => 'Parent',
 			'model' => 'Model',
 			'name' => 'Name',
@@ -93,33 +94,18 @@ class Category extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-
 		$criteria->compare('parent_id',$this->parent_id,true);
-
 		$criteria->compare('model',$this->model,true);
-
 		$criteria->compare('name',$this->name,true);
-
 		$criteria->compare('description',$this->description,true);
-
 		$criteria->compare('islink',$this->islink);
-
 		$criteria->compare('linkurl',$this->linkurl,true);
-
 		$criteria->compare('template',$this->template,true);
-
 		$criteria->compare('ismenu',$this->ismenu);
-
 		$criteria->compare('hits',$this->hits,true);
 
-		return new CActiveDataProvider('Category', array(
+		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
 		));
-	}
-	
-	public static function getSubCategory($catId) {
-		$criteria = new CDbCriteria();
-		$criteria->addColumnCondition(array('parent_id'=>$catId));
-		return self::model()->findAll();
 	}
 }

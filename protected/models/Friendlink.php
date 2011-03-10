@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This is the model class for table "{{Friendlink}}".
+ * This is the model class for table "{{friendlink}}".
  *
- * The followings are the available columns in table '{{Friendlink}}':
- * @property integer $id
+ * The followings are the available columns in table '{{friendlink}}':
+ * @property string $id
  * @property string $name
  * @property string $linkurl
  * @property string $logo
  * @property string $description
- * @property integer $order
+ * @property string $order
  * @property integer $isvalid
- * @property integer $create_time
+ * @property string $create_time
  * @property string $create_ip
  */
 class Friendlink extends CActiveRecord
@@ -30,7 +30,7 @@ class Friendlink extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Friendlink}}';
+		return '{{friendlink}}';
 	}
 
 	/**
@@ -41,9 +41,10 @@ class Friendlink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('isvalid, order, create_time', 'numerical', 'integerOnly'=>true),
+			array('isvalid', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('linkurl, logo, description', 'length', 'max'=>255),
+			array('order, create_time', 'length', 'max'=>10),
 			array('create_ip', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -68,7 +69,7 @@ class Friendlink extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Id',
+			'id' => 'ID',
 			'name' => 'Name',
 			'linkurl' => 'Linkurl',
 			'logo' => 'Logo',
@@ -92,39 +93,17 @@ class Friendlink extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-
 		$criteria->compare('name',$this->name,true);
-
 		$criteria->compare('linkurl',$this->linkurl,true);
-
 		$criteria->compare('logo',$this->logo,true);
-
 		$criteria->compare('description',$this->description,true);
-
 		$criteria->compare('order',$this->order,true);
-
 		$criteria->compare('isvalid',$this->isvalid);
-
 		$criteria->compare('create_time',$this->create_time,true);
-
 		$criteria->compare('create_ip',$this->create_ip,true);
 
-		return new CActiveDataProvider('Friendlink', array(
+		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	public function behaviors()
-	{
-	    return array(
-	        'CTimestampBehavior' => array(
-	            'class' => 'zii.behaviors.CTimestampBehavior',
-	    		'updateAttribute' => NULL,
-	        ),
-	        'CDIpBehavior' => array(
-	            'class' => 'application.behaviors.CDIpBehavior',
-	        	'updateAttribute' => NULL,
-	        )
-	    );
 	}
 }

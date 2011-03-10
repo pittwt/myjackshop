@@ -1,13 +1,13 @@
 <?php
 
 /**
- * This is the model class for table "{{Area}}".
+ * This is the model class for table "{{area}}".
  *
- * The followings are the available columns in table '{{Area}}':
- * @property integer $id
- * @property integer $parent_id
+ * The followings are the available columns in table '{{area}}':
+ * @property string $id
+ * @property string $parent_id
  * @property string $name
- * @property integer $order
+ * @property string $order
  */
 class Area extends CActiveRecord
 {
@@ -25,7 +25,7 @@ class Area extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Area}}';
+		return '{{area}}';
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Area extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('parent_id, order', 'numerical', 'integerOnly'=>true),
+			array('parent_id, order', 'length', 'max'=>10),
 			array('name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -61,7 +61,7 @@ class Area extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'Id',
+			'id' => 'ID',
 			'parent_id' => 'Parent',
 			'name' => 'Name',
 			'order' => 'Order',
@@ -80,14 +80,11 @@ class Area extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
-
 		$criteria->compare('parent_id',$this->parent_id,true);
-
 		$criteria->compare('name',$this->name,true);
-
 		$criteria->compare('order',$this->order,true);
 
-		return new CActiveDataProvider('Area', array(
+		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
 		));
 	}

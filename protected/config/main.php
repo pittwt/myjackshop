@@ -11,7 +11,7 @@ $params = require(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'params.php');
 return array(
 	'id' => 'kanshen.me',
 	'basePath'=>dirname(__FILE__). DIRECTORY_SEPARATOR .'..',
-	'name'=>'看什么',
+	'name'=>'my-yiicms',
 	'charset' => 'utf-8',
     'language' => 'zh_cn',
     'layout' => 'main',
@@ -24,15 +24,21 @@ return array(
 		'application.components.*',
 		'application.extensions.*',
 	),
-
 	'modules'=>array(
 		'album' => array(
 			'layout' => 'album'
+		),
+		'admin' => array(
+			'layout' => 'admin'
 		),
 		'api' => array(),
 		'chrome' => array(
 			'layout' => 'chrome'
 		),
+		'gii'=>array(
+			'class'=>'system.gii.GiiModule',
+			'password'=>'123123',
+		)
 	),
 
 	// application components
@@ -52,7 +58,7 @@ return array(
             'rules' => array(
 		        '/' => 'site/index',
 				'api' => 'api/site/index',
-				'chrome' => 'chrome/site/index', 
+				'chrome' => 'chrome/site/index',
 				'meinv' => 'album/meinv',
 				'meinv/<t:(new|hot)>' => 'album/meinv/index',
 				'meinv/<id:\d+>' => 'album/meinv/list',
@@ -64,7 +70,7 @@ return array(
 
 		'db'=>array(
 			'class' => 'CDbConnection',
-			'connectionString' => 'mysql:host=localhost;dbname=mydb',
+			'connectionString' => 'mysql:host=localhost;dbname=my_yiicms',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => 'root',
