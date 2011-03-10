@@ -1,29 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "{{article}}".
+ * This is the model class for table "{{Article}}".
  *
- * The followings are the available columns in table '{{article}}':
- * @property string $id
- * @property string $user_id
- * @property string $cat_id
- * @property string $type_id
- * @property string $area_id
+ * The followings are the available columns in table '{{Article}}':
+ * @property integer $id
+ * @property integer $user_id
+ * @property integer $cat_id
+ * @property integer $type_id
+ * @property integer $area_id
  * @property string $title
  * @property string $style
  * @property string $thumb
  * @property string $keywords
  * @property string $description
- * @property string $order
+ * @property integer $order
  * @property integer $islink
  * @property string $linkurl
- * @property string $create_time
+ * @property integer $create_time
  * @property string $create_ip
- * @property string $update_time
+ * @property integer $update_time
  * @property string $update_ip
  * @property integer $state
- * @property string $hits
- * @property string $comments
+ * @property integer $hits
+ * @property integer $comments
  */
 class Article extends CActiveRecord
 {
@@ -41,7 +41,7 @@ class Article extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{article}}';
+		return '{{Article}}';
 	}
 
 	/**
@@ -52,10 +52,10 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('islink, state', 'numerical', 'integerOnly'=>true),
-			array('user_id, cat_id, type_id, area_id, order, create_time, update_time, hits, comments', 'length', 'max'=>10),
-			array('title, thumb, keywords, description', 'length', 'max'=>255),
+			array('user_id, cat_id, type_id, area_id, order, create_time, update_time, hits, comments, islink, state', 'numerical', 'integerOnly'=>true),
+			array('title, thumb, keywords', 'length', 'max'=>255),
 			array('style, linkurl', 'length', 'max'=>50),
+			array('description', 'safe'),
 			array('create_ip, update_ip', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -71,6 +71,11 @@ class Article extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'area' => array(self::BELONGS_TO, 'Area', 'area_id'),
+			'category' => array(self::BELONGS_TO, 'Category', 'cat_id'),
+			'album' => array(self::HAS_MANY, 'ArticleAlbum', 'article_id'),
+			'news' => array(self::HAS_ONE, 'ArticleNews', 'article_id'),
 		);
 	}
 
@@ -80,7 +85,7 @@ class Article extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Id',
 			'user_id' => 'User',
 			'cat_id' => 'Cat',
 			'type_id' => 'Type',
@@ -115,28 +120,64 @@ class Article extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+
 		$criteria->compare('user_id',$this->user_id,true);
+
 		$criteria->compare('cat_id',$this->cat_id,true);
+
 		$criteria->compare('type_id',$this->type_id,true);
+
 		$criteria->compare('area_id',$this->area_id,true);
+
 		$criteria->compare('title',$this->title,true);
+
 		$criteria->compare('style',$this->style,true);
+
 		$criteria->compare('thumb',$this->thumb,true);
+
 		$criteria->compare('keywords',$this->keywords,true);
+
 		$criteria->compare('description',$this->description,true);
+
 		$criteria->compare('order',$this->order,true);
+
 		$criteria->compare('islink',$this->islink);
+
 		$criteria->compare('linkurl',$this->linkurl,true);
+
 		$criteria->compare('create_time',$this->create_time,true);
+
 		$criteria->compare('create_ip',$this->create_ip,true);
+
 		$criteria->compare('update_time',$this->update_time,true);
+
 		$criteria->compare('update_ip',$this->update_ip,true);
+
 		$criteria->compare('state',$this->state);
+
 		$criteria->compare('hits',$this->hits,true);
+
 		$criteria->compare('comments',$this->comments,true);
 
-		return new CActiveDataProvider(get_class($this), array(
+		return new CActiveDataProvider('Article', array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function behaviors()
+	{
+	    return array(
+	        'CTimestampBehavior' => array(
+	            'class' => 'zii.behaviors.CTimestampBehavior',
+	        ),
+	        'CDIpBehavior' => array(
+	            'class' => 'application.behaviors.CDIpBehavior',
+	        )
+	    );
+	}
+
+	public function getThumbUrl()
+	{
+		return sbu($this->thumb);
 	}
 }

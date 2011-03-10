@@ -1,19 +1,19 @@
 <?php
 
 /**
- * This is the model class for table "{{user}}".
+ * This is the model class for table "{{User}}".
  *
- * The followings are the available columns in table '{{user}}':
- * @property string $id
+ * The followings are the available columns in table '{{User}}':
+ * @property integer $id
  * @property string $username
  * @property string $password
  * @property string $email
  * @property integer $state
  * @property string $realname
- * @property string $login_nums
- * @property string $create_time
+ * @property integer $login_nums
+ * @property integer $create_time
  * @property string $create_ip
- * @property string $last_login_time
+ * @property integer $last_login_time
  * @property string $last_login_ip
  * @property integer $ismanage
  */
@@ -33,7 +33,7 @@ class User extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{user}}';
+		return '{{User}}';
 	}
 
 	/**
@@ -44,10 +44,9 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('state, ismanage', 'numerical', 'integerOnly'=>true),
+			array('state, ismanage, login_nums, create_time, last_login_time', 'numerical', 'integerOnly'=>true),
 			array('username, email, realname', 'length', 'max'=>50),
 			array('password', 'length', 'max'=>32),
-			array('login_nums, create_time, last_login_time', 'length', 'max'=>10),
 			array('create_ip, last_login_ip', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -63,6 +62,9 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'userApi' => array(self::HAS_ONE, 'UserApi', 'user_id'),
+			'userNote' => array(self::HAS_MANY, 'UserNote', 'user_id'),
+			'userSession' => array(self::HAS_MANY, 'UserSession', 'user_id'),
 		);
 	}
 
@@ -72,7 +74,7 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Id',
 			'username' => 'Username',
 			'password' => 'Password',
 			'email' => 'Email',
@@ -99,20 +101,67 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id,true);
+
 		$criteria->compare('username',$this->username,true);
+
 		$criteria->compare('password',$this->password,true);
+
 		$criteria->compare('email',$this->email,true);
+
 		$criteria->compare('state',$this->state);
+
 		$criteria->compare('realname',$this->realname,true);
+
 		$criteria->compare('login_nums',$this->login_nums,true);
+
 		$criteria->compare('create_time',$this->create_time,true);
+
 		$criteria->compare('create_ip',$this->create_ip,true);
+
 		$criteria->compare('last_login_time',$this->last_login_time,true);
+
 		$criteria->compare('last_login_ip',$this->last_login_ip,true);
+
 		$criteria->compare('ismanage',$this->ismanage);
 
-		return new CActiveDataProvider(get_class($this), array(
+		return new CActiveDataProvider('User', array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	public function behaviors()
+	{
+	    return array(
+	        'CTimestampBehavior' => array(
+	            'class' => 'zii.behaviors.CTimestampBehavior',
+	    		'updateAttribute' => NULL,
+	        ),
+	        'CDIpBehavior' => array(
+	            'class' => 'application.behaviors.CDIpBehavior',
+	        	'updateAttribute' => NULL,
+	        )
+	    );
+	}
+
+	protected function afterSave()
+	{
+		parent::afterSave();
+		if ($this->isNewRecord) {
+			// 增加到新的在线记事本
+			$usernote = new UserNote();
+			$usernote->user_id = $this->id;
+			$usernote->title = '我的记事本';
+			$usernote->content = '欢迎使用我的在线记事本！';
+			$usernote->update_time = time();
+			$usernote->update_ip = $_SERVER['REMOTE_ADDR'];
+			$usernote->save();
+			
+			// 自动添加userinfo记录
+			$userinfo = new UserInfo();
+			$userinfo->user_id = $this->id;
+			$userinfo->birthday = '0000-00-00';
+			$userinfo->save();
+		}
+		return true;
 	}
 }

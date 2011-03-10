@@ -29,7 +29,7 @@ class Comment extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{comment}}';
+		return '{{Comment}}';
 	}
 
 	/**
@@ -100,7 +100,7 @@ class Comment extends CActiveRecord
 		$criteria->compare('create_ip',$this->create_ip,true);
 		$criteria->compare('status',$this->status);
 
-		return new CActiveDataProvider(get_class($this), array(
+		return new CActiveDataProvider('Comment', array(
 			'criteria'=>$criteria,
 		));
 	}
