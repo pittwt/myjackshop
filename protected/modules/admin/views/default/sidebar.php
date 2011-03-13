@@ -7,41 +7,41 @@
 
 			<!-- Sidebar Profile links -->
 	  <div id="profile-links">
-				Hello, <a href="#" title="Edit your profile">John Doe</a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
+				您好, <a href="#" title="Edit your profile"><?php echo Yii::app()->session['username'];?></a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
 				<br />
-				<a href="#" title="View the Site">View the Site</a> | <a href="#" title="Sign Out">Sign Out</a>
+				<a href="#" title="View the Site">网站首页</a> | <a href="<?php echo $this->createUrl('default/logout'); ?>">退出</a>
 			</div>
 
 			<ul id="main-nav">  <!-- Accordion Menu -->
 
 				<li>
 					<a href="#" class="nav-top-item current"> <!-- Add the class "current" to current menu item -->
-					Articles
+					内容管理
 					</a>
 					<ul>
-						<li><a href="#">Write a new Article</a></li>
-						<li><a class="current" href="#">Manage Articles</a></li> <!-- Add class "current" to sub menu items also -->
-						<li><a href="#">Manage Comments</a></li>
+						<li><a href="#">文章分类</a></li>
+						<li><a class="current" href="#">发布文章</a></li> <!-- Add class "current" to sub menu items also -->
 					</ul>
 				</li>
 
 				<li>
 					<a href="#" class="nav-top-item">
-						Pages
+						会员管理
 					</a>
 					<ul>
-						<li><a href="#">Create a new Page</a></li>
-						<li><a href="#">Manage Pages</a></li>
+						<li><a href="#">添加会员</a></li>
+						<li><a href="#">会员组管理</a></li>
 					</ul>
 				</li>
 
 				<li>
 					<a href="#" class="nav-top-item">
-						Settings
+						系统设置
+
 					</a>
 					<ul>
-						<li><a href="#">General</a></li>
-						<li><a href="#">Design</a></li>
+						<li><a href="#">管理首页</a></li>
+						<li><a href="#">站点设置</a></li>
 					</ul>
 				</li>
 

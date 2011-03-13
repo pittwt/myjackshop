@@ -41,7 +41,7 @@ h5            { font-size: 14px; padding: 0 0 5px 0; }
 h6            { font-size: 12px; padding: 0 0 5px 0; }
 
 
-a              { color: #57a000; text-decoration: none; }
+a              { color: #0375b4; text-decoration: none; }
 a:hover     { color: #000; }
 a:active     { color: #777; }
 a:focus     { outline: 1px; }
@@ -75,11 +75,11 @@ p {
 .button {
 				font-family: Verdana, Arial, sans-serif;
                 display: inline-block;
-                background: #459300 url('../images/bg-button-green.gif') top left repeat-x !important;
-                border: 1px solid #459300 !important;
+                background: #004995 url('../images/bg-button-green.gif') top left repeat-x !important;
+                border: 1px solid #004995 !important;
                 padding: 4px 7px 4px 7px !important;
                 color: #fff !important;
-                font-size: 11px !important;
+                font-size: 12px !important;
                 cursor: pointer;
                 }
                 
@@ -109,7 +109,6 @@ a.remove-link:hover {
                 left: 0;
                 top: 0;
                 color: #888;
-                font-size: 11px;
                 }
 
 #sidebar #sidebar-wrapper {
@@ -322,7 +321,7 @@ ul.content-box-tabs li a {
                 }
 
 ul.content-box-tabs li a:hover {
-                color: #57a000;
+                color: #0375b4;
                 }              
                 
 ul.content-box-tabs li a.current {
@@ -397,7 +396,7 @@ ul.content-box-tabs li a.current {
 
 .pagination a.current {
                 background: #469400 url('../images/bg-button-green.gif') top left repeat-x !important;
-                border-color: #459300 !important;
+                border-color: #004995 !important;
                 color: #fff !important;
                 }
 				
@@ -435,7 +434,7 @@ ul.content-box-tabs li a.current {
                 }
 				
 .shortcut-button span:hover {
-				color: #57a000; 
+				color: #0375b4; 
                 }
 
 ul.shortcut-buttons-set li {
@@ -514,7 +513,7 @@ form input[type="radio"] {
                 margin: 0 0 15px 0;
                 padding: 0;
                 border: 1px solid;
-                background-position: 10px 11px !important;
+                background-position: 10px 12px !important;
                 background-repeat: no-repeat !important;
                 font-size: 13px;
                 width: 99.8%;
@@ -522,7 +521,7 @@ form input[type="radio"] {
                 
 
 .attention {
-                background: #fffbcc url('../images/icons/exclamation.png') 10px 11px no-repeat;
+                background: #fffbcc url('../images/icons/exclamation.png') 10px 12px no-repeat;
                 border-color: #e6db55;
                 color: #666452;
                 }
@@ -793,3 +792,5 @@ div.wysiwyg ul.panel li a.removeFormat { background-position: -80px -64px; }
 div.wysiwyg ul.panel li a.empty { background-position: -64px -80px; }
 
 div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !important; }
+
+.noboder { border:0px;}
