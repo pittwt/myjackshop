@@ -17,7 +17,7 @@ class DefaultController extends Controller
 			{
 				$loginModel->login();
 //				LoginForm::clearErrorLoginNums();
-				$this->redirect(url('admin/default/index'));
+				$this->redirect(url('admin/default/start'));
 			}
 		}
 		$this->pageTitle = '管理登录';

@@ -21,27 +21,22 @@
 
 				<li><a class="shortcut-button" href="#"><span>
 					<img src="<?php echo resBu("admin/images/icons/pencil_48.png");?>" alt="icon" /><br />
-					Write an Article
 				</span></a></li>
 
 				<li><a class="shortcut-button" href="#"><span>
 					<img src="<?php echo resBu("admin/images/icons/paper_content_pencil_48.png");?>" alt="icon" /><br />
-					Create a New
 				</span></a></li>
 
 				<li><a class="shortcut-button" href="#"><span>
 					<img src="<?php echo resBu("admin/images/icons/image_add_48.png");?>" alt="icon" /><br />
-					Upload an Image
 				</span></a></li>
 
 				<li><a class="shortcut-button" href="#"><span>
 					<img src="<?php echo resBu("admin/images/icons/clock_48.png");?>" alt="icon" /><br />
-					Add an Event
 				</span></a></li>
 
 				<li><a class="shortcut-button" href="#messages" rel="modal"><span>
 					<img src="<?php echo resBu("admin/images/icons/comment_48.png");?>" alt="icon" /><br />
-					Open Modal
 				</span></a></li>
 
 			</ul><!-- End .shortcut-buttons-set -->
@@ -54,16 +49,12 @@
 				</div>
 				<div class="content-box-content noboder">
 					<ul>
-						<li>服务器操作系统: <?php echo sprintf('%s / PHP v%s', PHP_OS, PHP_VERSION);?></li>
+						<li>服务器操作系统: <?php echo sprintf('%s', PHP_OS, PHP_VERSION);?></li>
 						<li>Web 服务器: <?php echo $_SERVER['SERVER_SOFTWARE'];?></li>
-                        <li>PHP 版本: 5.2.9-2</li>
-                        <li>MySQL 版本: 5.1.33-community</li>
-                        <li>安全模式: 否</li>
-                        <li>安全模式GID: 否</li>
-                        <li>Socket 支持:否</li>
-                        <li>Zlib 支持:是</li>
-                        <li>文件上传的最大大小:32M</li>
-                        <li>时区设置:UTC 8</li>
+                        <li>MySQL 版本: <?php echo sprintf('%s-%s', ucfirst(app()->db->driverName), app()->db->serverVersion);?></li>
+                        <li>安全模式: <?php echo (boolean) ini_get('safe_mode') ?  '是' : '否' ; ?></li>
+                        <li>文件上传的最大大小:<?php echo ini_get('upload_max_filesize'); ?></li>
+                        <li>时区设置:<?php echo function_exists("date_default_timezone_get") ? date_default_timezone_get().' ' : '没有时区'; ?></li>
                         <li>程序版本:1.0 Alpha 1</li>
 					</ul>
 				</div>

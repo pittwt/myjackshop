@@ -7,7 +7,7 @@
 
 			<!-- Sidebar Profile links -->
 	  <div id="profile-links">
-				您好, <a href="#" title="Edit your profile"><?php echo Yii::app()->session['username'];?></a>, you have <a href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
+				您好, <a href="#" title="Edit your profile"><?php echo Yii::app()->session['username'];?></a><br />
 				<br />
 				<a href="#" title="View the Site">网站首页</a> | <a href="<?php echo $this->createUrl('default/logout'); ?>">退出</a>
 			</div>

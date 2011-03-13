@@ -8,7 +8,12 @@
 		</div> <!-- End #logn-top -->
 
 		<div id="login-content">
-
+			<div class="error-summary" <?php if (!$loginModel->hasErrors()) echo 'style="display:none;"'; ?>>
+		  	<?php if ($loginModel->hasErrors()) {
+		  			echo '用户名或密码错误！';
+		  		}
+		  	?>
+		 	</div>
 			<?php echo CHtml::beginForm();?>
 				<p>
 					<?php echo CHtml::activeLabel($loginModel, 'username');?>
