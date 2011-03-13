@@ -129,39 +129,9 @@ class User extends CActiveRecord
 		));
 	}
 
-	public function behaviors()
+	public function validatePassword($password)
 	{
-	    return array(
-	        'CTimestampBehavior' => array(
-	            'class' => 'zii.behaviors.CTimestampBehavior',
-	    		'updateAttribute' => NULL,
-	        ),
-	        'CDIpBehavior' => array(
-	            'class' => 'application.behaviors.CDIpBehavior',
-	        	'updateAttribute' => NULL,
-	        )
-	    );
+		return md5($password) === $this->password;
 	}
 
-	protected function afterSave()
-	{
-		parent::afterSave();
-		if ($this->isNewRecord) {
-			// 增加到新的在线记事本
-			$usernote = new UserNote();
-			$usernote->user_id = $this->id;
-			$usernote->title = '我的记事本';
-			$usernote->content = '欢迎使用我的在线记事本！';
-			$usernote->update_time = time();
-			$usernote->update_ip = $_SERVER['REMOTE_ADDR'];
-			$usernote->save();
-			
-			// 自动添加userinfo记录
-			$userinfo = new UserInfo();
-			$userinfo->user_id = $this->id;
-			$userinfo->birthday = '0000-00-00';
-			$userinfo->save();
-		}
-		return true;
-	}
 }

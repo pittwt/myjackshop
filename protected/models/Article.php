@@ -175,7 +175,7 @@ class Article extends CActiveRecord
 	        )
 	    );
 	}
-
+	
 	public function getThumbUrl()
 	{
 		return sbu($this->thumb);

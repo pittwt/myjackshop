@@ -57,6 +57,8 @@ return array(
 		    //'urlSuffix' => '.html',
             'rules' => array(
 		        '/' => 'site/index',
+		        'cmsadmin' => 'admin/default/index',
+
 				'api' => 'api/site/index',
 				'chrome' => 'chrome/site/index',
 				'meinv' => 'album/meinv',

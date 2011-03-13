@@ -12,6 +12,8 @@ class AdminModule extends CWebModule
 			'admin.models.*',
 			'admin.components.*',
 		));
+
+		$this->layout = 'admin';
 	}
 
 	public function beforeControllerAction($controller, $action)

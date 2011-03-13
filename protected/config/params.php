@@ -6,9 +6,9 @@ return array(
 
 	'siteKeywords' => '看美女,看帅哥,看电影,看笑话',
 
-	'attachmentsBaseUrl' => array('http://localhost/yiicms/'),
+	'attachmentsBaseUrl' => array('http://localhost/my-yiicms/'),
     'attachmentsBasePath' => dirname(__FILE__) . DS . '..' . DS . '..' . DS . 'attachments' . DS,
-    'resourceBaseUrl' => array('http://localhost/yiicms/resources/'),
+    'resourceBaseUrl' => array('http://localhost/my-yiicms/resources/'),
     'resourceBasePath' => dirname(__FILE__) . DS . '..' . DS . '..' . DS . 'resources' . DS,
 
 	/*
