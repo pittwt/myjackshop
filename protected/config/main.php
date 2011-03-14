@@ -15,6 +15,7 @@ return array(
 	'charset' => 'utf-8',
     'language' => 'zh_cn',
     'layout' => 'main',
+    'timeZone' => 'Asia/Shanghai',
 	// preloading 'log' component
 	//'preload'=>array('log'),
 
@@ -58,6 +59,7 @@ return array(
             'rules' => array(
 		        '/' => 'site/index',
 		        'cmsadmin' => 'admin/default/index',
+		        'cmslogin' => 'admin/default/login',
 
 				'api' => 'api/site/index',
 				'chrome' => 'chrome/site/index',

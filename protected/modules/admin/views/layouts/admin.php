@@ -17,6 +17,5 @@ cs()->registerScriptFile(resBu('admin/scripts/jquery.datePicker.js'), CClientScr
 cs()->registerScriptFile(resBu('admin/scripts/jquery.date.js'), CClientScript::POS_END);
 ?>
 </head>
-
     <?php echo $content?>
 </html>

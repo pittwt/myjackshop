@@ -13,16 +13,17 @@
 		  			echo '用户名或密码错误！';
 		  		}
 		  	?>
+		  	<?php echo CHtml::errorSummary($loginModel); ?>
 		 	</div>
 			<?php echo CHtml::beginForm();?>
 				<p>
 					<?php echo CHtml::activeLabel($loginModel, 'username');?>
-					<?php echo CHtml::activeTextField($loginModel, 'username', array('tabindex'=>1, 'class'=>'text-input'));?>
+					<?php echo CHtml::activeTextField($loginModel, 'username', array('class'=>'text-input'));?>
 				</p>
 				<div class="clear"></div>
 				<p>
 					<?php echo CHtml::activeLabel($loginModel, 'password');?>
-					<?php echo CHtml::activePasswordField($loginModel, 'password', array('tabindex'=>2, 'class'=>'text-input'));?>
+					<?php echo CHtml::activePasswordField($loginModel, 'password', array('class'=>'text-input'));?>
 				</p>
 				<div class="clear"></div>
 
