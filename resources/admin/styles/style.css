@@ -7,15 +7,10 @@ html {
                 height: 100%;
                 margin-bottom: 1px; /* Always show a scrollbar to avoid jumping when the scrollbar appears  */
                 }
-body {
-                font-family: Arial, Helvetica, sans-serif;
-                color: #555;
-                background: #f0f0f0 url('../images/bg-body.gif') top left repeat-y;
-                font-size: 12px;
-                }
+body{ font-size:12px; color:#666; background:#f3f3f3;}
 #body-wrapper {
                 background: url('../images/bg-radial-gradient.gif') fixed 230px top no-repeat;
-                }                
+                }
 #warper {
 	background: #f0f0f0 url('../images/bg-body-line.gif') repeat;
 	font-family: Arial, Helvetica, sans-serif;
@@ -30,10 +25,10 @@ h1, h2, h3, h4, h5, h6 {
                 font-weight: bold;
                 }
 
-h1            { font-family: Calibri, Helvetica, Arial, sans-serif; font-size: 31px; font-weight: bold; color: #fff; 
+h1            { font-family: Calibri, Helvetica, Arial, sans-serif; font-size: 31px; font-weight: bold; color: #fff;
 				  position: absolute; top: -1000px;  /* Remove this line and delete the logo (in the HTML) if you don't want an image as a logo */
 				}
-				
+
 h2            { font-size: 26px; padding: 0 0 10px 0; }
 h3            { font-size: 17px; padding: 0 0 10px 0; }
 h4            { font-size: 16px; padding: 0 0 5px 0; }
@@ -41,14 +36,14 @@ h5            { font-size: 14px; padding: 0 0 5px 0; }
 h6            { font-size: 12px; padding: 0 0 5px 0; }
 
 
-a              { color: #0375b4; text-decoration: none; }
+a              { color: #21759B; text-decoration: none; }
 a:hover     { color: #000; }
 a:active     { color: #777; }
 a:focus     { outline: 1px; }
 
 strong       { font-weight: bold; color: #333; }
 
-small   		{ font-size: 0.85em; }
+small   		{ font-size: 12px; }
 
 pre           { font-family: monospace; }
 
@@ -62,11 +57,11 @@ p {
 .clear {
                 clear: both;
                 }
-				
+
 .align-left {
                 float: left;
                 }
-				
+
 .align-right {
                 float: right;
                 }
@@ -82,15 +77,15 @@ p {
                 font-size: 12px !important;
                 cursor: pointer;
                 }
-                
+
 .button:hover {
                 text-decoration: underline;
                 }
-                
+
 .button:active {
                 padding: 5px 7px 3px 7px !important;
                 }
-				
+
 a.remove-link {
 				color: #bb0000;
 				}
@@ -100,7 +95,7 @@ a.remove-link:hover {
 				}
 
 /********************************      Sidebar      ********************************/
-
+/*
 #sidebar {
                 background: url('../images/bg-sidebar.gif') top left no-repeat;
                 width: 230px;
@@ -138,7 +133,7 @@ a.remove-link:hover {
                 line-height: 1.5em;
                 }
 
-/************ Sidebar Accordion Menu ************/
+
 
 #sidebar #main-nav {
                 width: 206px;
@@ -154,7 +149,7 @@ a.remove-link:hover {
                 }
 
 #sidebar #main-nav li a.nav-top-item {
-                background: transparent url('../images/bg-menu-item-green.gif') right center no-repeat; /* Background image for default color scheme - green */
+                background: transparent url('../images/bg-menu-item-green.gif') right center no-repeat;
                 padding: 10px 15px;
                 color: #fff;
                 font-size: 14px;
@@ -168,7 +163,7 @@ a.remove-link:hover {
                 color: #333;
                 font-weight: bold;
                 }
-                
+
 #sidebar #main-nav li a.current:hover {
                 color: #333;
                 }
@@ -204,7 +199,7 @@ a.remove-link:hover {
                 background: transparent url('../images/menu-current-arrow.gif') right center no-repeat !important;
                 }
 
-
+*/
 /************ Messages ************/
 
 #messages p,
@@ -216,11 +211,11 @@ a.remove-link:hover {
 #messages h4 {
                 padding: 10px 0;
                 }
-				
+
 #messages fieldset {
                 margin: 0;
                 }
-				
+
 #messages textarea {
                 margin: 0 0 15px 0;
                 }
@@ -229,26 +224,26 @@ a.remove-link:hover {
 /************ Layout ************/
 
 #main-content {
-                margin: 0 30px 0 260px;
-                padding: 40px 0 0 0;
+                margin: 0 30px 0 200px;
+                padding: 20px 0 0 0;
                 }
 
 .column-left {
                 width: 48%;
                 float: left;
                 }
-                
+
 .column-right {
                 width: 48%;
                 float: right;
                 }
-               
+
 #page-intro {
                 font-size: 17px;
                 padding: 0 0 20px 0;
                 }
 
-				
+
 #footer {
 				border-top: 1px solid #ccc;
 				margin: 40px 0 0 0;
@@ -291,12 +286,13 @@ a.remove-link:hover {
 .content-box-header {
                 background: #e5e5e5 url('../images/bg-content-box.gif') top left repeat-x;
                 margin-top: 1px;
-                height: 40px;
+                height: 32px;
                 }
 
 .content-box-header h3 {
-                padding: 12px 15px 10px;
+                padding: 10px 15px 10px;
                 float: left;
+				font-size:12px;
                 }
 
 ul.content-box-tabs {
@@ -311,7 +307,7 @@ ul.content-box-tabs li {
                 padding: 0 !important;
                 background-image: none !important;
                 }
-                
+
 ul.content-box-tabs li a {
                 color: #333;
                 padding: 8px 10px;
@@ -322,8 +318,8 @@ ul.content-box-tabs li a {
 
 ul.content-box-tabs li a:hover {
                 color: #0375b4;
-                }              
-                
+                }
+
 ul.content-box-tabs li a.current {
                 background: #fff;
                 border: 1px solid #ccc;
@@ -336,47 +332,47 @@ ul.content-box-tabs li a.current {
                 font-size: 13px;
                 border-top: 1px solid #ccc;
                 }
-                
+
 /************ Table ************/
 
 #main-content table {
                 width: 100%;
                 border-collapse: collapse;
                 }
-                
+
 #main-content table thead th {
                 font-weight: bold;
                 font-size: 15px;
                 border-bottom: 1px solid #ddd;
                 }
-                
+
 #main-content tbody {
                 border-bottom: 1px solid #ddd;
                 }
-                
+
 #main-content tbody tr {
                 background: #fff;
                 }
-              
+
 #main-content tbody tr.alt-row {
                 background: #f3f3f3;
                 }
-                
+
 #main-content table td,
 #main-content table th {
                 padding: 10px;
                 line-height: 1.3em;
-                }        
-				
+                }
+
 #main-content table tfoot td .bulk-actions {
                 padding: 15px 0 5px 0;
-                } 
-				
+                }
+
 #main-content table tfoot td .bulk-actions select {
                 padding: 4px;
 				border: 1px solid #ccc;
-                }      
-				
+                }
+
 /*************** Pagination ***************/
 
 #main-content .pagination {
@@ -399,7 +395,7 @@ ul.content-box-tabs li a.current {
                 border-color: #004995 !important;
                 color: #fff !important;
                 }
-				
+
 .pagination a.current:hover {
 				text-decoration: underline;
                 }
@@ -430,11 +426,11 @@ ul.content-box-tabs li a.current {
 
 .shortcut-button:hover {
                 background: #fff;
-				
+
                 }
-				
+
 .shortcut-button span:hover {
-				color: #0375b4; 
+				color: #0375b4;
                 }
 
 ul.shortcut-buttons-set li {
@@ -451,54 +447,53 @@ form label {
                 padding: 0 0 10px;
                 font-weight: bold;
                 }
-             
+
 form fieldset legend {
                 font-weight: bold;
                 margin-bottom: 10px;
                 padding-top: 10px;
                 }
-                
+
 form p small {
                 font-size: 0.75em;
                 color: #777;
                 }
-				
-				
+
+
 form input.text-input,
 form select,
 form textarea,
 form .wysiwyg {
-                padding: 6px;
+                padding: 5px;
                 font-size: 13px;
                 background: #fff url('../images/bg-form-field.gif') top left repeat-x;
                 border: 1px solid #d5d5d5;
 				color: #333;
                 }
-            
+
 form .small-input {
                 width: 25% !important;
                 }
-                
+
 form .medium-input {
                 width: 50% !important;
                 }
-                
+
 form .large-input {
                 width: 97.5% !important;
 				font-size: 16px !important;
 				padding: 8px !important;
                 }
-                
+
 form textarea {
-                width: 97.5% !important;
                 font-family: Arial, Helvetica, sans-serif;
                 }
-                
+
 form select {
                 padding: 4px;
                 background: #fff;
                 }
-				
+
 form input[type="checkbox"],
 form input[type="radio"] {
 				padding: 0;
@@ -518,7 +513,7 @@ form input[type="radio"] {
                 font-size: 13px;
                 width: 99.8%;
                 }
-                
+
 
 .attention {
                 background: #fffbcc url('../images/icons/exclamation.png') 10px 12px no-repeat;
@@ -583,7 +578,7 @@ form input[type="radio"] {
                 color: #fff;
                 background: #222 url('../images/bg-login.gif') repeat;
 				}
-				
+
 #login-wrapper {
                 background: url('../images/bg-login-top.png') top left repeat-x;
 				}
@@ -593,13 +588,13 @@ form input[type="radio"] {
 				padding: 140px 0 50px 0;
 				text-align: center;
 				}
-				
+
 #login-wrapper #login-content {
 				text-align: left;
 				width: 300px;
 				margin: 0 auto;
 				}
-				
+
 #login-wrapper #login-content label {
 				color: #fff;
 				font-weight: normal;
@@ -609,7 +604,7 @@ form input[type="radio"] {
 				width: 70px;
 				padding: 0;
 				}
-				
+
 #login-wrapper #login-content input {
 				width: 200px;
 				float: right;
@@ -617,15 +612,15 @@ form input[type="radio"] {
 				border: 0;
 				background: #fff;
 				}
-				
+
 #login-wrapper #login-content p {
 				padding: 0;
 				}
-				
+
 #login-wrapper #login-content p#remember-password {
 				float: right;
 				}
-				
+
 #login-wrapper #login-content p#remember-password input {
 				float: none;
 				width: auto;
@@ -633,7 +628,7 @@ form input[type="radio"] {
 				background: none;
 				margin: 0 10px 0 0;
 				}
-				
+
 #login-wrapper #login-content p .button {
 				width: auto;
 				margin-top: 20px;
@@ -795,3 +790,19 @@ div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !im
 
 .noboder { border:0px;}
 .error-summary {text-align:left;font-weight: bold;color: #fff;margin: 10px 0px;}
+
+/********     my yiicms               *******/
+#top { width:100%; height:60px; background:url('../images/top-line.gif') repeat-x; border-bottom:1px #444 solid;}
+#top .logo{ width:221px; height:40px; margin:10px 0px 0px 20px; float:left;}
+#top .top-right{ float:right; margin:30px 50px 0px 0px; text-align:left; font-size:12px; color:#ccc;}
+#main { width:100%; padding-top:20px; border-top:1px solid #666;}
+#sidebar { width:150px; height:600px; padding:0px 0px 0px 20px; float:left;}
+#sidebar ul{ width:150px; border:#888 solid 1px; margin-bottom:1px; }
+#sidebar ul li{ line-height:24px; padding-left:10px;}
+
+#sidebar ul li.title{  background:url('../images/menu-bits.jpg') repeat-x; width:140px; line-height:22px; height:28px; padding-top:4px; font-weight:bold; text-align:left; color:#fff; vertical-align:middle;}
+#sidebar .menu-title{ background:url('../images/menu-bits.jpg') repeat-x; width:152px; margin-bottom:5px; height:30px; }
+.separate{ background:url('../images/arrow.gif') no-repeat; width:152px; height:20px; cursor:w-resize;}
+.none-bg{ background:none;}
+.none-border{ border:none;}
+.setting tr th { width:180px;}

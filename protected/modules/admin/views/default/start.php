@@ -1,47 +1,12 @@
-<body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+<body>
+	<?php include(dirname(__FILE__).'./../default/top.php');?>
+	<div id="main">
+		<?php include(dirname(__FILE__).'./../default/sidebar.php');?>
 
-		<?php include("sidebar.php");?>
-        <!-- End #sidebar -->
+		<div id="main-content">
 
-		<div id="main-content"> <!-- Main Content Section with everything -->
-
-			<noscript> <!-- Show a notification if the user has disabled javascript -->
-				<div class="notification error png_bg">
-					<div>
-						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
-					Download From <a href="http://www.exet.tk">exet.tk</a></div>
-				</div>
-			</noscript>
-
-			<!-- Page Head -->
 			<h2>Welcome <?php echo Yii::app()->session['username'];?></h2>
 			<p id="page-intro">欢迎使用My-yiicms管理系统</p>
-
-			<ul class="shortcut-buttons-set">
-
-				<li><a class="shortcut-button" href="#"><span>
-					<img src="<?php echo resBu("admin/images/icons/pencil_48.png");?>" alt="icon" /><br />
-				</span></a></li>
-
-				<li><a class="shortcut-button" href="#"><span>
-					<img src="<?php echo resBu("admin/images/icons/paper_content_pencil_48.png");?>" alt="icon" /><br />
-				</span></a></li>
-
-				<li><a class="shortcut-button" href="#"><span>
-					<img src="<?php echo resBu("admin/images/icons/image_add_48.png");?>" alt="icon" /><br />
-				</span></a></li>
-
-				<li><a class="shortcut-button" href="#"><span>
-					<img src="<?php echo resBu("admin/images/icons/clock_48.png");?>" alt="icon" /><br />
-				</span></a></li>
-
-				<li><a class="shortcut-button" href="#messages" rel="modal"><span>
-					<img src="<?php echo resBu("admin/images/icons/comment_48.png");?>" alt="icon" /><br />
-				</span></a></li>
-
-			</ul><!-- End .shortcut-buttons-set -->
-
-			<div class="clear"></div> <!-- End .clear -->
 
 			<div class="content-box"><!-- Start Content Box -->
 				<div class="content-box-header">
@@ -72,8 +37,7 @@
 					</ul>
 				</div>
 			</div>
-			<?php include("foot.php")?>
-			<!-- End #footer -->
+
 
 		</div> <!-- End #main-content -->
 		<div id="messages" style="display: none"> <!-- Messages are shown when a link with these attributes are clicked: href="#messages" rel="modal"  -->
@@ -116,12 +80,10 @@
 						</select>
 
 						<input class="button" type="submit" value="Send" />
-
 					</fieldset>
-
 				</form>
-
 			</div> <!-- End #messages -->
-
+			<?php include("foot.php")?>
+			<!-- End #footer -->
 	</div>
     </body>
