@@ -22,12 +22,12 @@
 								<td><textarea class="text-input textarea" value="<?php echo CHtml::encode($settings[2]->val); ?>" name="val[sitedescription]" cols="50" rows="3"></textarea></td>
 							</tr>
 
-							<tr>
+							<tr class="none-bg">
 								<td>网站版权信息： </td>
 								<td><textarea class="text-input textarea" value="<?php echo CHtml::encode($settings[3]->val); ?>" name="val[sitecopyright]" cols="50" rows="3"></textarea></td>
 							</tr>
 
-							<tr>
+							<tr class="none-bg">
                             	<td>&nbsp;</td>
 								<td><input class="button" type="submit" value="更新站点设置" /></td>
 							</tr>

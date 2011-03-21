@@ -13,7 +13,6 @@
 		  			echo '用户名或密码错误！';
 		  		}
 		  	?>
-		  	<?php echo CHtml::errorSummary($loginModel); ?>
 		 	</div>
 			<?php echo CHtml::beginForm();?>
 				<p>
