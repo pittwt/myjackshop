@@ -6,7 +6,7 @@
         	<li class="title">系统设置</li>
             <li><a class="current" href="<?php echo $this->createUrl('settings/'); ?>">站点设置</a></li>
 			<li><a href="<?php echo $this->createUrl('default/start'); ?>">地域管理</a></li>
-			<li><a href="<?php echo $this->createUrl('default/start'); ?>">友情链接</a></li>
+			<li><a href="<?php echo $this->createUrl('settings/friendlink'); ?>">友情链接</a></li>
         </ul>
         <ul>
         	<li class="title">内容管理</li>
