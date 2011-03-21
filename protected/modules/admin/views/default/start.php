@@ -19,7 +19,7 @@
                         <li>MySQL 版本: <?php echo sprintf('%s-%s', ucfirst(app()->db->driverName), app()->db->serverVersion);?></li>
                         <li>安全模式: <?php echo (boolean) ini_get('safe_mode') ?  '是' : '否' ; ?></li>
                         <li>文件上传的最大大小:<?php echo ini_get('upload_max_filesize'); ?></li>
-                        <li>时区设置:<?php echo function_exists("date_default_timezone_get") ? date_default_timezone_get().' ' : '没有时区'; ?></li>
+                        <li>时区设置:<?php echo function_exists("date_default_timezone_get") ? date_default_timezone_get() : '没有时区'; ?></li>
                         <li>程序版本:1.0 Alpha 1</li>
 					</ul>
 				</div>
