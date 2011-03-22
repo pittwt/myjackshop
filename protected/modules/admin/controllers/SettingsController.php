@@ -29,7 +29,7 @@ class SettingsController extends Controller
 	 */
 	public function actionFriendlink()
 	{
-		if(isset($_POST['friendlinkform']))
+		if(isset($_GET['friendlinkform']))
 		{
 			exit;
 		}
@@ -44,4 +44,28 @@ class SettingsController extends Controller
 		}
 	}
 
+	/*
+	 * 删除友情链接
+	 */
+	public function actionDelFriendlink($id = null)
+	{
+		if(isset($id))
+		{
+			$this->loadModel($id)->delete();
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+		}
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+

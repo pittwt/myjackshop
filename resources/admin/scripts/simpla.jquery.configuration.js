@@ -75,7 +75,7 @@ $(document).ready(function(){
 
     // Alternating table rows:
 
-		//$('tbody tr:even').addClass("alt-row"); // Add class "alt-row" to even table rows
+		$('.tabrow tr:even').addClass("alt-row"); // Add class "alt-row" to even table rows
 
     // Check all checkboxes when the one in a table head is checked:
 
