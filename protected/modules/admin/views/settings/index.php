@@ -19,12 +19,12 @@
 
 							<tr class="none-bg">
 								<th>站点描述</th>
-								<td><textarea class="text-input textarea" value="<?php echo CHtml::encode($settings[2]->val); ?>" name="val[sitedescription]" cols="50" rows="3"></textarea></td>
+								<td><textarea class="text-input textarea name="val[sitedescription]" cols="50" rows="3"><?php echo CHtml::encode($settings[2]->val); ?></textarea></td>
 							</tr>
 
 							<tr class="none-bg">
 								<td>网站版权信息： </td>
-								<td><textarea class="text-input textarea" value="<?php echo CHtml::encode($settings[3]->val); ?>" name="val[sitecopyright]" cols="50" rows="3"></textarea></td>
+								<td><textarea class="text-input textarea" name="val[sitecopyright]" cols="50" rows="3"><?php echo CHtml::encode($settings[3]->val); ?></textarea></td>
 							</tr>
 
 							<tr class="none-bg">

@@ -4,17 +4,17 @@
 	<?php include(dirname(__FILE__).'./../default/sidebar.php');?>
 		<div id="main-content">
 			<div class="content-box none-border"><!-- Start Content Box -->
-				<div>
-					友情链接
+				<div class="content-title">
+					<h4>友情链接</h4>
 				</div>
 				<div class="content-box-content none-border tabrow">
                     	<table class="setting">
 							<tr>
-								<th width="5%"><input type="checkbox" name="flid[]"></th>
+								<th width="5%"><input type="checkbox" name="flid[]" class="allbox"></th>
 								<th width="15%">链接名称</th>
 								<th width="25%">连接网址</th>
 								<th width="30%">链接介绍</th>
-								<th width="10%">显示</th>
+								<th width="10%">状态</th>
 								<th width="15%">操作</th>
 							</tr>
 							<?php foreach($friendlink as $item):?>

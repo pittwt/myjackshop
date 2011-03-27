@@ -92,7 +92,16 @@ $(document).ready(function(){
     // Initialise jQuery WYSIWYG:
 
 		$(".wysiwyg").wysiwyg(); // Applies WYSIWYG editor to any textarea with the class "wysiwyg"
-
+	//checkbox 全选 反选
+	$(".allbox").click(function(){ 
+	
+			$("input[@type='checkbox']").checkCbx();
+		
+	});
+	$.fn.checkCbx = function(){ 
+	
+		return this.each(function(){ 
+			this.checked = !this.checked; 
+		}); 
+	}
 });
-
-

@@ -51,12 +51,55 @@ class SettingsController extends Controller
 	{
 		if(isset($id))
 		{
-			$this->loadModel($id)->delete();
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+			if(Friendlink::model()->findByPk($id)->delete())
+			{
+				$this->redirect(url('admin/settings/friendlink'));
+			}
+			//if(!isset($_GET['ajax']))
+				//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 		}
 	}
 
+	/**
+	 * 删除友情链接
+	 */
+	public function actionEditFriendlink()
+	{
+		if(isset($_GET['id']))
+		{
+			if(isset($_POST['friendlink']))
+			{
+				$friendlink = Friendlink::model()->findbyPk($_GET['id']);
+				$friendlink->attributes=$_POST['friendlink'];
+				if($friendlink->save())
+					$this->redirect(url('admin/settings/friendlink'));
+			}
+			else
+			{
+				$friendlink=Friendlink::model()->findbyPk($_GET['id']);
+				$this->render('editfriendlink',array(
+					'friendlink'=>$friendlink));
+			}
+		}
+		else
+		{
+			$this->redirect(url('admin/settings/friendlink'));
+		}
+	}
+
+	/**
+	 * 更新友情链接
+	 */
+	public function actionUpdateFriendlink()
+	{
+		if(isset($_GET['id']))
+		{
+			$friendlink = Friendlink::model()->findbyPk($_GET['id']);
+			$friendlink->attributes=$_POST['friendlink'];
+			if($model->save())
+				echo "ok";
+		}
+	}
 }
 
 
