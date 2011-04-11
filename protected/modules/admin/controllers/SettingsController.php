@@ -100,6 +100,31 @@ class SettingsController extends Controller
 				echo "ok";
 		}
 	}
+    
+    /**
+     * 改变状态
+     */
+    public function actionChangestate()
+    {
+        if(isset($_GET['isvalid']) && isset($_GET['id']))
+        {
+            $friendlink = Friendlink::model()->findByPk($_GET['id']);
+            if($_GET['isvalid']==1){
+                $isvalid = 0;
+                $img = "cross.png";
+            }
+            else{
+                $isvalid = 1;
+                $img = "tick_circle.png";
+            }
+            $friendlink->isvalid = $isvalid;
+            if($friendlink->save())
+                echo CHtml::link('<img src="'.resBu("admin/images/icons/$img").'" />',array("settings/changestate",'isvalid'=>$isvalid,'id'=>$_GET['id']),array('class'=>'flstate','rel'=>$isvalid));
+            else
+                //echo CHtml::link('<img src="'.resBu("admin/images/icons/tick_circle.png").'" />',array("settings/changestate",'isvalid'=>$_GET['isvalid'],'id'=>$_GET['id']),array('class'=>'flstate','rel'=>$_GET['isvalid']));
+                echo 0;
+        }
+    }
 }
 
 

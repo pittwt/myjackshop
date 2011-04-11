@@ -104,4 +104,21 @@ $(document).ready(function(){
 			this.checked = !this.checked; 
 		}); 
 	}
+    $(".flstate").click (function(e){
+        e.preventDefault();
+        alert(123);
+        var tthis = $(this);
+        var state = tthis.attr('rel');
+        $.ajax({
+    		type: 'post',
+    		url: tthis.attr('href'),
+    		dataType: 'html',
+    		//beforeSend: function(){
+    //		},
+    		success: function(data){
+                tthis.after(data);
+                tthis.remove();
+    		}
+    	});
+    });
 });
