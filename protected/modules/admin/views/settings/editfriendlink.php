@@ -3,12 +3,12 @@
 	<div id="main">
 	<?php include(dirname(__FILE__).'./../default/sidebar.php');?>
 		<div id="main-content">
-			<div class="content-box none-border"><!-- Start Content Box -->
+			<div class="content-box none-border">
 				<div>
 					<h4>友情链接</h4>
 				</div>
 				<div class="content-box-content none-border tabrow">
-                    <form method="post" action="" name="EditFriendlink">	
+                    <form method="post" action="" name="EditFriendlink">
                     <table class="setting">
                         <tr>
                             <td>连接名称</td>

@@ -10,7 +10,7 @@ cs()->registerCssFile(resBu("admin/styles/style.css"));
 cs()->registerCssFile(resBu("admin/styles/invalid.css"));
 cs()->registerCoreScript('jquery');
 cs()->registerScriptFile(resBu('scripts/global.js'), CClientScript::POS_END);
-cs()->registerScriptFile(resBu('admin/scripts/simpla.jquery.configuration.js'), CClientScript::POS_END);
+cs()->registerScriptFile(resBu('admin/scripts/admin.configuration.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/facebox.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/jquery.wysiwyg.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/jquery.datePicker.js'), CClientScript::POS_END);
