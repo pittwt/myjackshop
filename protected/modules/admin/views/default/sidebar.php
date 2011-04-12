@@ -20,3 +20,4 @@
 			<li><a href="<?php echo $this->createUrl('default/start'); ?>">会员组管理</a></li>
 		</ul>
 </div>
+<div class="dwindle" style="display:none;"></div>

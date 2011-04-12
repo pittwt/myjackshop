@@ -8,6 +8,11 @@
 cs()->registerCssFile(resBu("admin/styles/reset.css"));
 cs()->registerCssFile(resBu("admin/styles/style.css"));
 cs()->registerCssFile(resBu("admin/styles/invalid.css"));
+
+?>
+</head>
+    <?php echo $content?>
+<?php
 cs()->registerCoreScript('jquery');
 cs()->registerScriptFile(resBu('scripts/global.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/admin.configuration.js'), CClientScript::POS_END);
@@ -16,6 +21,4 @@ cs()->registerScriptFile(resBu('admin/scripts/jquery.wysiwyg.js'), CClientScript
 cs()->registerScriptFile(resBu('admin/scripts/jquery.datePicker.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/jquery.date.js'), CClientScript::POS_END);
 ?>
-</head>
-    <?php echo $content?>
 </html>

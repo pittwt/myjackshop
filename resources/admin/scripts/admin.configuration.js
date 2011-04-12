@@ -94,19 +94,16 @@ $(document).ready(function(){
 		$(".wysiwyg").wysiwyg(); // Applies WYSIWYG editor to any textarea with the class "wysiwyg"
 	//checkbox 全选 反选
 	$(".allbox").click(function(){ 
-	
-			$("input[@type='checkbox']").checkCbx();
+        if(this.checked){   
+            $(":checkbox").each(function(){this.checked=true;});
+        }else{   
+            $(":checkbox").each(function(){this.checked=false;});   
+        } 
 		
 	});
-	$.fn.checkCbx = function(){ 
-	
-		return this.each(function(){ 
-			this.checked = !this.checked; 
-		}); 
-	}
+    //友情链接状态切换
     $(".flstate").click (function(e){
         e.preventDefault();
-        alert(123);
         var tthis = $(this);
         var state = tthis.attr('rel');
         $.ajax({
@@ -114,11 +111,21 @@ $(document).ready(function(){
     		url: tthis.attr('href'),
     		dataType: 'html',
     		//beforeSend: function(){
-    //		},
+            //},
     		success: function(data){
                 tthis.after(data);
                 tthis.remove();
     		}
     	});
     });
+    $(".separate").click(function(){
+        $("#sidebar").css("display","none");
+        $("#main-content").css("margin-left","50px");
+        $(".dwindle").css("display","block");
+    })
+    $(".dwindle").click(function(){
+        $("#sidebar").css("display","block");
+        $("#main-content").css("margin-left","200px");
+        $(".dwindle").css("display","none");
+    })
 });

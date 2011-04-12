@@ -225,7 +225,7 @@ a.remove-link:hover {
 
 #main-content {
                 margin: 0 30px 0 200px;
-                padding: 20px 0 0 0;
+                padding: 10px 0 0 0;
                 }
 
 .column-left {
@@ -796,13 +796,14 @@ div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !im
 #top .logo{ width:221px; height:40px; margin:10px 0px 0px 20px; float:left;}
 #top .top-right{ float:right; margin:30px 50px 0px 0px; text-align:left; font-size:12px; color:#ccc;}
 #main { width:100%; padding-top:20px; border-top:1px solid #666;}
-#sidebar { width:150px; height:600px; padding:0px 0px 0px 20px; float:left;}
+#sidebar { width:150px; padding:0px 0px 0px 20px; float:left;}
 #sidebar ul{ width:150px; border:#888 solid 1px; margin-bottom:1px; }
 #sidebar ul li{ line-height:24px; padding-left:10px;}
 
 #sidebar ul li.title{  background:url('../images/menu-bits.jpg') repeat-x; width:140px; line-height:22px; height:28px; padding-top:4px; font-weight:bold; text-align:left; color:#fff; vertical-align:middle;}
 #sidebar .menu-title{ background:url('../images/menu-bits.jpg') repeat-x; width:152px; margin-bottom:5px; height:30px; }
 .separate{ background:url('../images/arrow.gif') no-repeat; width:152px; height:20px; cursor:w-resize;}
+.dwindle{background: url('../images/arrow.gif') -140px -20px no-repeat; width:20px; margin:-8px 0px 0px 16px; height:25px; float:left; cursor:w-resize;}
 .none-bg{ background:none;}
 .none-border{ border:none;}
 .setting tr th { width:180px;}

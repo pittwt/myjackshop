@@ -5,7 +5,7 @@
 		<div id="main-content">
 			<div class="content-box none-border"><!-- Start Content Box -->
 				<div class="content-title">
-					<h4>友情链接</h4>
+					<h4>友情链接</h4>添加
 				</div>
 				<div class="content-box-content none-border tabrow">
                     	<table class="setting">
