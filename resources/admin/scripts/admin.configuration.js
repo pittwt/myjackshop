@@ -115,14 +115,17 @@ $(document).ready(function(){
     		success: function(data){
                 tthis.after(data);
                 tthis.remove();
+                //tthis.bind('click')
     		}
     	});
     });
+    //隐藏侧边栏
     $(".separate").click(function(){
         $("#sidebar").css("display","none");
         $("#main-content").css("margin-left","50px");
         $(".dwindle").css("display","block");
     })
+    //打开侧边栏
     $(".dwindle").click(function(){
         $("#sidebar").css("display","block");
         $("#main-content").css("margin-left","200px");

@@ -5,7 +5,8 @@
 		<div id="main-content">
 			<div class="content-box none-border"><!-- Start Content Box -->
 				<div class="content-box-content none-border">
-					<?php echo CHtml::beginForm('','post',array('name'=>'settingsform'));?>
+					<?php echo CHtml::beginForm('settings/update','post',array('name'=>'settingsform'));?>
+                        <input type="text" value="<?php echo $settings?>" name="id">
                     	<table class="setting">
 							<tr class="none-bg">
 								<th><span class="wid2">网站名称</span></th>

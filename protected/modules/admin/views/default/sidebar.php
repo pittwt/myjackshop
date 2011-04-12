@@ -1,7 +1,5 @@
 <div id="sidebar">
-		<div class="separate">
-
-        </div>
+		<div class="separate"></div>
     	<ul>
         	<li class="title">系统设置</li>
             <li><a class="current" href="<?php echo $this->createUrl('settings/'); ?>">站点设置</a></li>

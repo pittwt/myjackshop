@@ -7,11 +7,19 @@ class SettingsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		if(isset($_POST['settingsform']))
+		if(isset($_POST['val']))
 		{
-			print_r($_POST['val']);
-			exit;
-			$this->render('index');
+			//print_r($_POST['val']);
+//			exit;
+            //$friendlink = Friendlink::model()->findbyPk($_GET['id']);
+//			$friendlink->attributes=$_POST['friendlink'];
+
+            $settings = new Settings;
+            $settings->attributes=$_POST['val'];
+            if($settings->save())
+            {
+                $this->redirect(url("admin/settings"));
+            }
 		}
 		else
 		{
@@ -23,6 +31,25 @@ class SettingsController extends Controller
 			));
 		}
 	}
+    
+    /*
+     * 更新站点设置
+     */
+    public function actionUpdate($id = 1)
+    {
+        //$model=$this->loadModel($id);
+        if(isset($_POST['val']))
+		{
+            $model = Settings::model()->findbyPk((int)$id);
+            $settings->attributes=$_POST['val'];
+            if($settings->save())
+            {
+                $this->redirect(url("admin/settings"));
+            }
+            echo 123;
+        }
+         
+    }
 
 	/*
 	 * 友情链接
@@ -60,7 +87,31 @@ class SettingsController extends Controller
 		}
 	}
 
-	/**
+    /*
+     * 添加友情链接
+     */
+    public function actionAddFriendlink()
+    {
+       
+        $friendlink = new Friendlink('friendlink');
+        if(isset($_POST['friendlink']))
+        {
+            $friendlink->attributes = $_POST['friendlink'];
+            if($friendlink->save())
+            {
+                echo "添加成功";
+            }
+        }
+        else
+        {
+            $this->pageTitle = "添加友情链接";
+            $this->render('addfriendlink', array(
+                'friendlink' => $friendlink,
+            ));
+        }
+    }
+    
+	/*
 	 * 删除友情链接
 	 */
 	public function actionEditFriendlink()

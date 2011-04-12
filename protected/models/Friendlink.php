@@ -16,6 +16,11 @@
  */
 class Friendlink extends CActiveRecord
 {
+    public static $static = array(
+        0 => '禁用',
+        1 => '正常',
+    );
+    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Friendlink the static model class

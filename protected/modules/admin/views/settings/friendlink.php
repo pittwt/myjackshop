@@ -5,7 +5,8 @@
 		<div id="main-content">
 			<div class="content-box none-border"><!-- Start Content Box -->
 				<div class="content-title">
-					<h4>友情链接</h4>添加
+					<h4>友情链接</h4>
+                    <?php echo CHtml::link('添加', array('settings/addfriendlink'));?>
 				</div>
 				<div class="content-box-content none-border tabrow">
                     	<table class="setting">
@@ -26,7 +27,6 @@
 								<td><span id="isvalid<?php echo $item->id;?>">
                                 <?php if($item->isvalid){
                                         echo CHtml::link('<img src="'.resBu("admin/images/icons/tick_circle.png").'" />',array("settings/changestate",'isvalid'=>$item->isvalid,'id'=>$item->id),array('class'=>'flstate','rel'=>$item->isvalid));
-                                        //echo CHtml::ajax(array('url'=>"settings/changestate",'data'=>""));
                                       }else{
                                         echo CHtml::link('<img src="'.resBu("admin/images/icons/cross.png").'" />',array("settings/changestate",'isvalid'=>$item->isvalid,'id'=>$item->id),array('class'=>'flstate','rel'=>$item->isvalid));
                                       }?>
