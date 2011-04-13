@@ -260,7 +260,7 @@ a.remove-link:hover {
 /* Unordered List */
 
 #main-content ul li {
-                background: url('../images/icons/bullet_black.png') center left no-repeat;
+                /*background: url('../images/icons/bullet_black.png') center left no-repeat;*/
                 padding: 4px 0 4px 20px;
                 }
 
@@ -809,3 +809,7 @@ div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !im
 .setting tr th { width:180px;}
 .content-title { padding:20px 0 10px 10px; border-bottom:1px solid #ddd; margin:0px 20px;}
 .content-title h4{ font-size:14px; color:#333;}
+.pages{ margin-top:10px;}
+.pages ul li{ background: none; font-size: 12px;}
+
+
