@@ -40,13 +40,12 @@ class SettingsController extends Controller
         //$model=$this->loadModel($id);
         if(isset($_POST['val']))
 		{
-            $model = Settings::model()->findbyPk((int)$id);
+            $model = Settings::model()->findbyPk($id);
             $settings->attributes=$_POST['val'];
             if($settings->save())
             {
                 $this->redirect(url("admin/settings"));
             }
-            echo 123;
         }
          
     }
@@ -56,19 +55,19 @@ class SettingsController extends Controller
 	 */
 	public function actionFriendlink()
 	{
-		if(isset($_GET['friendlinkform']))
-		{
-			exit;
-		}
-		else
-		{
-			$criteria = new CDbCriteria();
-			$friendlink = Friendlink::model()->findAll($criteria);
-			$this->pageTitle = '友情链接';
-			$this->render('friendlink',array(
-				'friendlink' => $friendlink,
-			));
-		}
+        $criteria = new CDbCriteria();
+        $criteria->limit = 2;
+        
+        $pages = new CPagination(Friendlink::model()->count($criteria));
+	    $pages->pageSize = 2;
+		$pages->applyLimit($criteria);
+        $friendlink = Friendlink::model()->findAll($criteria);
+        
+        $this->pageTitle = '友情链接';
+		$this->render('friendlink',array(
+			'friendlink' => $friendlink,
+            'pages' => $pages,
+		));
 	}
 
 	/*
@@ -92,23 +91,22 @@ class SettingsController extends Controller
      */
     public function actionAddFriendlink()
     {
-       
-        $friendlink = new Friendlink('friendlink');
-        if(isset($_POST['friendlink']))
+        $friendlink = new Friendlink();
+        if(isset($_POST['Friendlink']))
         {
-            $friendlink->attributes = $_POST['friendlink'];
+            $friendlink->attributes = $_POST['Friendlink'];
             if($friendlink->save())
             {
-                echo "添加成功";
+                //echo "添加成功";
+                $this->redirect(url('admin/settings/friendlink'));
             }
         }
-        else
-        {
-            $this->pageTitle = "添加友情链接";
-            $this->render('addfriendlink', array(
-                'friendlink' => $friendlink,
-            ));
-        }
+        
+        $this->pageTitle = "添加友情链接";
+        $this->render('addfriendlink', array(
+            'friendlink' => $friendlink,
+        ));
+        
     }
     
 	/*
@@ -176,6 +174,22 @@ class SettingsController extends Controller
                 echo 0;
         }
     }
+    
+    /**
+	 * This is invoked before the record is saved.
+	 * @return boolean whether the record should be saved.
+	 */
+	protected function beforeSave()
+	{
+		if(parent::beforeSave())
+		{
+			if($this->isNewRecord)
+				$this->create_time=time();
+			return true;
+		}
+		else
+			return false;
+	}
 }
 
 

@@ -14,12 +14,12 @@ class GlobalTools
      */
     public static function getClientIp()
     {
-        if ($_SERVER['HTTP_CLIENT_IP']) {
-	      $ip = $_SERVER['HTTP_CLIENT_IP'];
-	 	} elseif ($_SERVER['HTTP_X_FORWARDED_FOR']) {
-	      $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        if (getenv('HTTP_CLIENT_IP')) {
+	      $ip = getenv('HTTP_CLIENT_IP');
+	 	} elseif (getenv('HTTP_X_FORWARDED_FOR')) {
+	      $ip =getenv('HTTP_X_FORWARDED_FOR');
 	 	} else {
-	      $ip = $_SERVER['REMOTE_ADDR'];
+	      $ip = getenv('REMOTE_ADDR');
 	 	}
         
         return $ip;
