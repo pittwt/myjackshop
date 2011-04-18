@@ -1,7 +1,7 @@
 <body>
-	<?php include(dirname(__FILE__).'./../default/top.php');?>
+	<?php $this->renderPartial('../default/top');?>
 	<div id="main">
-	<?php include(dirname(__FILE__).'./../default/sidebar.php');?>
+	<?php $this->renderPartial('../default/sidebar');?>
 		<div id="main-content">
 			<div class="content-box none-border">
 				<div class="content-title">
@@ -43,6 +43,6 @@
 			</div>
 		</div>
 		<div class="clear"></div>
-		<?php include(dirname(__FILE__).'./../default/foot.php');?>
+		<?php $this->renderPartial('../default/foot');?>
 	</div>
     </body>

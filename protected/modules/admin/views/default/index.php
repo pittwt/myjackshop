@@ -1,7 +1,7 @@
 <body>
-	<?php include(dirname(__FILE__).'./../default/top.php');?>
+	<?php $this->renderPartial('../default/top');?>
 	<div id="main">
-	<?php include(dirname(__FILE__).'./../default/sidebar.php');?>
+	<?php $this->renderPartial('../default/sidebar');?>
 		<div id="main-content">
 
 			<!-- Page Head -->
