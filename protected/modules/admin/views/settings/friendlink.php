@@ -6,7 +6,7 @@
 			<div class="content-box none-border"><!-- Start Content Box -->
 				<div class="content-title">
 					<h4>友情链接</h4>
-                    <?php echo CHtml::link('添加', array('settings/addfriendlink'));?>
+                    <span class="add"><?php echo CHtml::link('添加', array('settings/addfriendlink'));?></span>
 				</div>
 				<div class="content-box-content none-border tabrow">
                     	<table class="setting">

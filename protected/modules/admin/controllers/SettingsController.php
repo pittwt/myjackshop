@@ -110,7 +110,7 @@ class SettingsController extends Controller
     }
     
 	/*
-	 * 删除友情链接
+	 * 更新友情链接
 	 */
 	public function actionEditFriendlink()
 	{
@@ -133,20 +133,6 @@ class SettingsController extends Controller
 		else
 		{
 			$this->redirect(url('admin/settings/friendlink'));
-		}
-	}
-
-	/**
-	 * 更新友情链接
-	 */
-	public function actionUpdateFriendlink()
-	{
-		if(isset($_GET['id']))
-		{
-			$friendlink = Friendlink::model()->findbyPk($_GET['id']);
-			$friendlink->attributes=$_POST['friendlink'];
-			if($model->save())
-				echo "ok";
 		}
 	}
     

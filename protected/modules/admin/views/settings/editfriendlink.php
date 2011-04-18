@@ -4,7 +4,7 @@
 	<?php include(dirname(__FILE__).'./../default/sidebar.php');?>
 		<div id="main-content">
 			<div class="content-box none-border">
-				<div>
+				<div class="content-title">
 					<h4>友情链接</h4>
 				</div>
 				<div class="content-box-content none-border tabrow">
