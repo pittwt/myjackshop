@@ -8,7 +8,7 @@
 					<h4>文章分类</h4>
 				</div>
 				<div class="content-box-content none-border tabrow">
-                    <?php echo CHtml::beginForm('category/add','post')?>
+                    <?php echo CHtml::beginForm(url('admin/category/add'),'post')?>
                     <table class="setting">
                         <tr>
                             <td><?php echo CHtml::activeLabel($category, '分类名称');?></td>

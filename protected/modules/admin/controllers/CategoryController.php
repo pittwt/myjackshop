@@ -7,10 +7,10 @@ class CategoryController extends CController
     function actionList()
     {
         $criteria = new CDbCriteria();
-        $criteria->limit = 2;
+        $criteria->limit = 10;
         $count = Category::model()->count($criteria);
         $pages = new CPagination($count);
-        $pages->pageSize = 2;
+        $pages->pageSize = 10;
         $pages->applyLimit($criteria);
         $model = Category::model()->findAll($criteria);
         
@@ -64,6 +64,21 @@ class CategoryController extends CController
         }
     }
     
+    /**
+     *
+     */
+    function actionDel()
+    {
+        if(isset($_GET['id']))
+        {
+            $category = Category::model()->findByPk($_GET['id']);
+            if($category->delete())
+            {
+                $this->redirect(url('admin/category/list'));
+            }
+        }
+    }
+     
     /**
      * 获取分类id列表
      */

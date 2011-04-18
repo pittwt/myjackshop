@@ -30,6 +30,16 @@
                         </tr>
                     <?php endforeach;?>
                     </table>
+                    <div class="pages">
+                        <?php $this->widget('CLinkPager', array(
+                            'pages' => $pages,
+                            'header' => '',
+                            'firstPageLabel' => '首页',
+                            'lastPageLabel' => '末页',
+                            'nextPageLabel' => '下一页',
+                            'prevPageLabel' => '上一页',
+                        ))?>
+                    </div>
 				</div>
 			</div>
 		</div>

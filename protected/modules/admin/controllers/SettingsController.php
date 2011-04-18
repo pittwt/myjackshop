@@ -9,11 +9,6 @@ class SettingsController extends Controller
 	{
 		if(isset($_POST['val']))
 		{
-			//print_r($_POST['val']);
-//			exit;
-            //$friendlink = Friendlink::model()->findbyPk($_GET['id']);
-//			$friendlink->attributes=$_POST['friendlink'];
-
             $settings = new Settings;
             $settings->attributes=$_POST['val'];
             if($settings->save())
@@ -56,10 +51,10 @@ class SettingsController extends Controller
 	public function actionFriendlink()
 	{
         $criteria = new CDbCriteria();
-        $criteria->limit = 2;
+        $criteria->limit = 10;
         
         $pages = new CPagination(Friendlink::model()->count($criteria));
-	    $pages->pageSize = 2;
+	    $pages->pageSize = 10;
 		$pages->applyLimit($criteria);
         $friendlink = Friendlink::model()->findAll($criteria);
         
@@ -81,8 +76,6 @@ class SettingsController extends Controller
 			{
 				$this->redirect(url('admin/settings/friendlink'));
 			}
-			//if(!isset($_GET['ajax']))
-				//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 		}
 	}
 
@@ -97,7 +90,6 @@ class SettingsController extends Controller
             $friendlink->attributes = $_POST['Friendlink'];
             if($friendlink->save())
             {
-                //echo "添加成功";
                 $this->redirect(url('admin/settings/friendlink'));
             }
         }

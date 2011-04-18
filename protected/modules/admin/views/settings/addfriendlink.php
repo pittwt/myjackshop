@@ -8,7 +8,7 @@
 					<h4>友情链接</h4>
 				</div>
 				<div class="content-box-content none-border tabrow">
-                    <?php echo CHtml::beginForm('addfriendlink','post')?>
+                    <?php echo CHtml::beginForm(url('admin/settings/addfriendlink'),'post')?>
                     <table class="setting">
                         <tr>
                             <td><?php echo CHtml::activeLabel($friendlink, '连接名称');?></td>
