@@ -65,7 +65,7 @@ class CategoryController extends CController
     }
     
     /**
-     *
+     * 删除分类
      */
     function actionDel()
     {

@@ -20,9 +20,16 @@ class SettingsController extends Controller
 		{
 			$criteria = new CDbCriteria();
 		   	$settings = Settings::model()->findAll($criteria);
+            
+            $sysinfo = array();
+            foreach($settings as $item)
+            {
+                $sysinfo[$item->key] = $item->val;
+            }
 		   	$this->pageTitle = '站点设置';
 			$this->render('index',array(
 				'settings' => $settings,
+                'sysinfo' => $sysinfo,
 			));
 		}
 	}

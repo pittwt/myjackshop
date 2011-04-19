@@ -4,28 +4,30 @@
 	<?php $this->renderPartial('../default/sidebar');?>
 		<div id="main-content">
 			<div class="content-box none-border"><!-- Start Content Box -->
+                <div class="content-title">
+					<h4>站点设置</h4>
+				</div>
 				<div class="content-box-content none-border">
 					<?php echo CHtml::beginForm('settings/update','post',array('name'=>'settingsform'));?>
-                        <input type="text" value="<?php echo $settings?>" name="id">
                     	<table class="setting">
 							<tr class="none-bg">
 								<th><span class="wid2">网站名称</span></th>
-								<td><input class="text-input small-input" value="<?php echo CHtml::encode($settings[0]->val); ?>" type="text" name="val[sitename]" /></td>
+								<td><input class="text-input small-input" value="<?php echo CHtml::encode($sysinfo['sitename']); ?>" type="text" name="val[sitename]" /></td>
 							</tr>
 
 							<tr class="none-bg">
 								<th>站点关键字</th>
-								<td><input class="text-input small-input datetricker" value="<?php echo CHtml::encode($settings[1]->val); ?>" type="text" name="val[keywords]" /></td>
+								<td><input class="text-input small-input datetricker" value="<?php echo CHtml::encode($sysinfo['keywords']); ?>" type="text" name="val[keywords]" /></td>
 							</tr>
 
 							<tr class="none-bg">
 								<th>站点描述</th>
-								<td><textarea class="text-input textarea name="val[sitedescription]" cols="50" rows="3"><?php echo CHtml::encode($settings[2]->val); ?></textarea></td>
+								<td><textarea class="text-input textarea name="val[siteDescription]" cols="50" rows="3"><?php echo CHtml::encode($sysinfo['siteDescription']); ?></textarea></td>
 							</tr>
 
 							<tr class="none-bg">
 								<td>网站版权信息： </td>
-								<td><textarea class="text-input textarea" name="val[sitecopyright]" cols="50" rows="3"><?php echo CHtml::encode($settings[3]->val); ?></textarea></td>
+								<td><textarea class="text-input textarea" name="val[siteCopyright]" cols="50" rows="3"><?php echo CHtml::encode($sysinfo['siteCopyright']); ?></textarea></td>
 							</tr>
 
 							<tr class="none-bg">
