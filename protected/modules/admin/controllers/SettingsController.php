@@ -2,14 +2,14 @@
 
 class SettingsController extends Controller
 {
-	/*
+	/**
 	 * 站点设置
 	 */
 	public function actionIndex()
 	{
-		if(isset($_POST['val']))
+		if(isset($_POST['setting']))
 		{
-            foreach($_POST['val'] as $key=>$value)
+            foreach($_POST['setting'] as $key=>$value)
             {
                 Settings::setValue($key, $value);
             }

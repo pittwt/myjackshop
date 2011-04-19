@@ -8,7 +8,7 @@
 					<h4>站点设置</h4>
 				</div>
 				<div class="content-box-content none-border">
-					<?php echo CHtml::beginForm('settings/index','post',array('name'=>'settingsform'));?>
+					<?php echo CHtml::beginForm(url('admin/settings/index'),'post',array('name'=>'settingsform'));?>
                     	<table class="setting">
 							<tr class="none-bg">
 								<th><span class="wid2">网站名称</span></th>
