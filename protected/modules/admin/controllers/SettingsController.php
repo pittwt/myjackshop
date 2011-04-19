@@ -37,19 +37,18 @@ class SettingsController extends Controller
     /*
      * 更新站点设置
      */
-    public function actionUpdate($id = 1)
+    public function actionUpdate()
     {
         //$model=$this->loadModel($id);
         if(isset($_POST['val']))
 		{
-            $model = Settings::model()->findbyPk($id);
-            $settings->attributes=$_POST['val'];
-            if($settings->save())
-            {
-                $this->redirect(url("admin/settings"));
-            }
+            //$model = Settings::model()->findbyPk();
+            //$settings->attributes=$_POST['val'];
+            //if($settings->save())
+//            {
+//                $this->redirect(url("admin/settings"));
+//            }
         }
-         
     }
 
 	/*
