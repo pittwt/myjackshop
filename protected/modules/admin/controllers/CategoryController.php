@@ -4,7 +4,7 @@ class CategoryController extends CController
     /**
      * 分类列表
      */
-    function actionList()
+    public function actionList()
     {
         $criteria = new CDbCriteria();
         $criteria->limit = 10;
@@ -24,7 +24,7 @@ class CategoryController extends CController
     /**
      * 添加分类
      */
-    function actionAdd()
+    public function actionAdd()
     {
         $catearray = $this->get_category_list();
         $category = new Category();
@@ -46,7 +46,7 @@ class CategoryController extends CController
     /**
      * 修改分类
      */
-    function actionEdit()
+    public function actionEdit()
     {
         $catearray = $this->get_category_list();
         $criteria = new CDbCriteria();
@@ -67,7 +67,7 @@ class CategoryController extends CController
     /**
      * 删除分类
      */
-    function actionDel()
+    public function actionDel()
     {
         if(isset($_GET['id']))
         {
@@ -82,10 +82,10 @@ class CategoryController extends CController
     /**
      * 获取分类id列表
      */
-    function get_category_list()
+    public static function get_category_list()
     {
         $criteria = new CDbCriteria();
-        $model = Category::model()->findAll($criteria); 
+        $model = Category::model()->findAll($criteria);
         $catearray = array();
         if(is_array($model))
         {

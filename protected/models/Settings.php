@@ -36,10 +36,10 @@ class Settings extends CActiveRecord
 		return array(
 			array('key', 'required'),
 			array('key', 'length', 'max'=>50),
-			array('val', 'length', 'max'=>255),
+			array('value', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('key, val', 'safe', 'on'=>'search'),
+			array('key, value', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,8 +60,8 @@ class Settings extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'key' => 'Key',
-			'val' => 'Val',
+			'key' => '参数',
+			'value' => '内容',
 		);
 	}
 
@@ -77,10 +77,36 @@ class Settings extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('key',$this->key,true);
-		$criteria->compare('val',$this->val,true);
+		$criteria->compare('value',$this->value,true);
 
 		return new CActiveDataProvider(get_class($this), array(
 			'criteria'=>$criteria,
 		));
+	}
+    
+    /**
+     * 获取站点信息
+     */
+    public static function getValue($key)
+	{
+		$self = self::model()->findByPk($key);
+		if($self) {
+			return $self->value;
+		}
+		return null;
+	}
+    
+    /**
+     * 设置站点信息
+     */
+	public static function setValue($key, $value)
+	{
+		$self = self::model()->findByPk($key);
+		if(null === $self) {
+			$self = new self();
+		}
+		$self->key = $key;
+		$self->value = $value;
+		return $self->save();
 	}
 }

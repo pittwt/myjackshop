@@ -9,48 +9,24 @@ class SettingsController extends Controller
 	{
 		if(isset($_POST['val']))
 		{
-            $settings = new Settings;
-            $settings->attributes=$_POST['val'];
-            if($settings->save())
+            foreach($_POST['val'] as $key=>$value)
             {
-                $this->redirect(url("admin/settings"));
+                Settings::setValue($key, $value);
             }
-		}
-		else
-		{
-			$criteria = new CDbCriteria();
-		   	$settings = Settings::model()->findAll($criteria);
-            
-            $sysinfo = array();
-            foreach($settings as $item)
-            {
-                $sysinfo[$item->key] = $item->val;
-            }
-		   	$this->pageTitle = '站点设置';
-			$this->render('index',array(
-				'settings' => $settings,
-                'sysinfo' => $sysinfo,
-			));
-		}
+        }
+	   	$settings = Settings::model()->findAll();
+        
+        $array = array();
+        foreach($settings as $item)
+        {
+            $array[$item->key] = $item->value;
+        }
+		$this->render('index',array(
+            'setting' => $array,
+		));
+		
 	}
     
-    /*
-     * 更新站点设置
-     */
-    public function actionUpdate()
-    {
-        //$model=$this->loadModel($id);
-        if(isset($_POST['val']))
-		{
-            //$model = Settings::model()->findbyPk();
-            //$settings->attributes=$_POST['val'];
-            //if($settings->save())
-//            {
-//                $this->redirect(url("admin/settings"));
-//            }
-        }
-    }
-
 	/*
 	 * 友情链接
 	 */
@@ -137,7 +113,7 @@ class SettingsController extends Controller
     /**
      * 改变状态
      */
-    public function actionChangestate()
+    public static function actionChangestate()
     {
         if(isset($_GET['isvalid']) && isset($_GET['id']))
         {
