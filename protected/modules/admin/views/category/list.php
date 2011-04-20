@@ -20,25 +20,16 @@
                     <?php foreach($model as $item):?>
                         <tr>
                             <td><input type="checkbox" name="flid[]"></td>
-                            <td><?php echo CHtml::encode($item->name);?></td>
-                            <td><?php echo CHtml::encode($item->description);?></td>
-                            <td><?php echo CHtml::encode($item->hits);?></td>
+                            <td><?php echo CHtml::encode($item['strpre'].' '.$item['name']);?></td>
+                            <td><?php echo CHtml::encode($item['description']);?></td>
+                            <td><?php echo CHtml::encode($item['hits']);?></td>
                             <td>
-                                <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('category/edit','id'=>$item->id));?>
-                                <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('category/del','id'=>$item->id),array('class'=>'delete','confirm'=>'确定删除?'))?>
+                                <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('category/edit','id'=>$item['id']));?>
+                                <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('category/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
                             </td>
                         </tr>
                     <?php endforeach;?>
                     </table>
-                    <div class="pages">
-                        <?php $this->widget('CLinkPager', array(
-                            'pages' => $pages,
-                            'header' => '',
-                            'firstPageLabel' => '首页',
-                            'lastPageLabel' => '末页',
-                            'nextPageLabel' => '下一页',
-                            'prevPageLabel' => '上一页',
-                        ))?>
                     </div>
 				</div>
 			</div>

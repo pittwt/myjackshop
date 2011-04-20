@@ -6,18 +6,10 @@ class CategoryController extends CController
      */
     public function actionList()
     {
-        $criteria = new CDbCriteria();
-        $criteria->limit = 10;
-        $count = Category::model()->count($criteria);
-        $pages = new CPagination($count);
-        $pages->pageSize = 10;
-        $pages->applyLimit($criteria);
-        $model = Category::model()->findAll($criteria);
-        
+        $model = self::getCategoryList();
         $this->pageTitle = "文章分类";
         $this->render('list',array(
             'model' => $model,
-            'pages' => $pages
         ));
     }
     
@@ -26,7 +18,7 @@ class CategoryController extends CController
      */
     public function actionAdd()
     {
-        $catearray = $this->get_category_list();
+        $catelist = self::getCategoryNamelist();
         $category = new Category();
         if(isset($_POST['Category']))
         {
@@ -36,10 +28,10 @@ class CategoryController extends CController
                 $this->redirect(url('admin/category/list'));
             }
         }
-        $this->pageTitle = "添加分类";
+        $this->pageTitle = "添加文章分类";
         $this->render('add',array(
             'category' => $category,
-            'catearray' => $catearray,
+            'catelist' => $catelist,
         ));
     }
     
@@ -48,14 +40,15 @@ class CategoryController extends CController
      */
     public function actionEdit()
     {
-        $catearray = $this->get_category_list();
+        $catelist = self::getCategoryNamelist();
         $criteria = new CDbCriteria();
         if(isset($_GET['id']))
         {
             $category = Category::model()->findByPk($_GET['id']);
+            $this->pageTitle = '修改文章分类';
             $this->render('edit', array(
                 'category' => $category,
-                'catearray' => $catearray
+                'catelist' => $catelist
             ));
         }
         else
@@ -82,7 +75,7 @@ class CategoryController extends CController
     /**
      * 获取分类id列表
      */
-    public static function get_category_list()
+    public static function getCategoryList()
     {
         $criteria = new CDbCriteria();
         $model = Category::model()->findAll($criteria);
@@ -91,14 +84,75 @@ class CategoryController extends CController
         {
             foreach($model as $value)
             {
-                $catearray[$value->id] = $value->name;
+                $catearray[$value->id] = $value->attributes;
             }
-            return $catearray;
+            return self::getCategory($catearray);
         }
         else
         {
             return false;
         }
     }
+    
+    public static function getCategoryNamelist()
+    {
+        $array = array();
+        $category = self::getCategoryList();
+        if(is_array($category))
+        {
+            foreach($category as $item)
+            {
+                $array[$item['id']] = $item['strpre'].$item['name'];
+            }
+            return $array;
+        }
+        return null;
+    }
+    
+    /**
+     * 获取分类目录树
+     */
+    public static function getCategory($array, $parent_id=0, $level=0)
+    {
+        $newarray = array();
+        $temparray = array();
+        $separator = self::getSeparator($level);
+        foreach($array as $item)
+        {
+            if($item['parent_id']==$parent_id)
+            {
+                $newarray[] = array(
+                    'id'         => $item['id'],
+                    'parent_id'  => $item['parent_id'],
+                    'model'      => $item['model'],
+                    'name'       => $item['name'],
+                    'description'=> $item['description'],
+                    'linkurl'    => $item['linkurl'],
+                    'hits'       => $item['hits'],
+                    'strpre'     => $separator,
+                );
+            
+                $temparray = self::getCategory($array, $item['id'], $level+1);
+                if($temparray)
+                {
+                    $newarray = array_merge($newarray, $temparray);
+                }
+           }
+           
+        }
+        return $newarray;
+    }
+    
+    public static function getSeparator($level)
+    {
+        $separator = '';
+        for($i=0;$i<$level;$i++)
+        {
+            $separator .= "—";
+        }
+        return $separator;
+    }
+    
+    
 }
 ?>

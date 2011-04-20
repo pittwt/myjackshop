@@ -5,7 +5,7 @@
 		<div id="main-content">
 			<div class="content-box none-border">
 				<div class="content-title">
-					<h4>文章分类</h4>
+					<h4>修改文章分类</h4>
 				</div>
 				<div class="content-box-content none-border tabrow">
                     <?php echo CHtml::beginForm('category/add','post')?>
@@ -17,7 +17,7 @@
                         </tr>
                         <tr>
                             <td><?php echo CHtml::activeLabel($category, '上级分类');?></td>
-                            <td><?php echo CHtml::activeDropDownList($category, 'parent_id', $catearray, array('empty'=>'顶级分类','id'=>'parent_id'));?>
+                            <td><?php echo CHtml::activeDropDownList($category, 'parent_id', $catelist, array('empty'=>'顶级分类','id'=>'parent_id'));?>
                             </td>
                         </tr>
                         <tr>
