@@ -88,10 +88,7 @@ class CategoryController extends CController
             }
             return self::getCategory($catearray);
         }
-        else
-        {
             return false;
-        }
     }
     
     public static function getCategoryNamelist()
@@ -152,7 +149,6 @@ class CategoryController extends CController
         }
         return $separator;
     }
-    
     
 }
 ?>
