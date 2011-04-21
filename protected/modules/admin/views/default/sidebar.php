@@ -8,11 +8,10 @@
     </ul>
     <ul>
     	<li class="title">内容管理</li>
-        <li><a href="<?php echo $this->createUrl('category/list'); ?>">文章</a></li>
+        <li><a href="<?php echo $this->createUrl('article/list'); ?>">文章</a></li>
         <li><a href="<?php echo $this->createUrl('default/start'); ?>">发布文章</a></li>
 		<li><a href="<?php echo $this->createUrl('category/list'); ?>">文章分类</a></li>
 		<li><a href="<?php echo $this->createUrl('default/start'); ?>">文章评论</a></li>
-		
 	</ul>
 	<ul>
 		<li class="title">会员管理</li>
