@@ -45,7 +45,12 @@ class ArticleController extends CController
      */
     public function actionDel()
     {
+        $catelist = Category::getCAtegoryNamelist();
         
+        if(isset($_GET['id']))
+        {
+        	$article = Article::model()->findByPk($_GET['id']);
+        }
     }
     
     /**

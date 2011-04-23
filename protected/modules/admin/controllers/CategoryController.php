@@ -41,7 +41,6 @@ class CategoryController extends CController
     public function actionEdit()
     {
         $catelist = Category::getCategoryNamelist();
-        $criteria = new CDbCriteria();
         if(isset($_GET['id']))
         {
             $category = Category::model()->findByPk($_GET['id']);
