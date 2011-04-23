@@ -35,7 +35,7 @@ class Friendlink extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Friendlink}}';
+		return '{{friendlink}}';
 	}
 
 	/**

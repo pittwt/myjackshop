@@ -31,7 +31,7 @@ class UserInfo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{UserInfo}}';
+		return '{{userInfo}}';
 	}
 
 	/**

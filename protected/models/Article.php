@@ -41,7 +41,7 @@ class Article extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Article}}';
+		return '{{article}}';
 	}
 
 	/**

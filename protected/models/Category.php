@@ -31,7 +31,7 @@ class Category extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Category}}';
+		return '{{category}}';
 	}
 
 	/**
@@ -123,4 +123,73 @@ class Category extends CActiveRecord
 		$criteria->addColumnCondition(array('parent_id'=>$catId));
 		return self::model()->findAll();
 	}
+	
+/**
+     * 获取分类id列表
+     */
+    public static function getCategoryList()
+    {
+        $criteria = new CDbCriteria();
+        $model = self::model()->findAll($criteria);
+        $catearray = array();
+        if(is_array($model))
+        {
+            foreach($model as $value)
+            {
+                $catearray[$value->id] = $value->attributes;
+            }
+            return self::getCategory($catearray);
+        }
+            return false;
+    }
+    
+    public static function getCategoryNamelist()
+    {
+        $array = array();
+        $category = self::getCategoryList();
+        if(is_array($category))
+        {
+            foreach($category as $item)
+            {
+                $array[$item['id']] = $item['strpre'].$item['name'];
+            }
+            return $array;
+        }
+        return null;
+    }
+    
+    /**
+     * 获取分类目录树
+     */
+    public static function getCategory($array, $parent_id=0, $level=0)
+    {
+        $newarray = array();
+        $temparray = array();
+        $separator = self::getSeparator($level);
+        foreach($array as $item)
+        {
+            if($item['parent_id']==$parent_id)
+            {	
+            	$item['strpre'] = $separator;
+                $newarray[] = $item;            
+                $temparray = self::getCategory($array, $item['id'], $level+1);
+                if($temparray)
+                {
+                    $newarray = array_merge($newarray, $temparray);
+                }
+           }
+           
+        }
+        return $newarray;
+    }
+    
+    public static function getSeparator($level)
+    {
+        $separator = '';
+        for($i=0;$i<$level;$i++)
+        {
+            $separator .= "—";
+        }
+        return $separator;
+    }
 }

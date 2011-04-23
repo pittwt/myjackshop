@@ -24,9 +24,19 @@ class ArticleController extends CController
      * 添加文章
      */
     public function actionAdd()
-    {
+    {	
+    	$catelist = Category::getCategoryNamelist();
+    	$article = new Article();
+    	if(isset($_POST['Article']))
+    	{
+    		$article->attributes = $_POST['Article'];
+    		if($article->save())
+    			$this->redirect(url('admin/article/list'));
+    	}
+    	$this->pageTitle = "添加文章分类";
         $this->render('add', array(
-            'model' => $model,
+        	'article' => $article,
+            'catelist' => $catelist,
         ));
     }
     

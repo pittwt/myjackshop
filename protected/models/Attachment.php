@@ -32,7 +32,7 @@ class Attachment extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{Attachment}}';
+		return '{{attachment}}';
 	}
 
 	/**

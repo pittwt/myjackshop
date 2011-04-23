@@ -26,8 +26,8 @@
                             <td><?php echo CHtml::encode($item['description']);?></td>
                             <td><?php echo CHtml::encode($item['hits']);?></td>
                             <td>
-                                <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('category/edit','id'=>$item['id']));?>
-                                <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('category/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
+                                <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('artilce/edit','id'=>$item['id']));?>
+                                <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('artilce/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
                             </td>
                         </tr>
                     <?php endforeach;?>
