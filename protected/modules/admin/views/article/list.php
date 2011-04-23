@@ -21,10 +21,10 @@
                     <?php foreach($model as $item):?>
                         <tr>
                             <td><input type="checkbox" name="flid[]"></td>
-                            <td><?php echo CHtml::encode($item['title']);?></td>
+                            <td><?php echo CHtml::encode($item->title);?></td>
                             <td><?php echo CHtml::encode($item->category->name);?></td>
-                            <td><?php echo CHtml::encode($item['description']);?></td>
-                            <td><?php echo CHtml::encode($item['hits']);?></td>
+                            <td><?php echo CHtml::encode($item->description);?></td>
+                            <td><?php echo CHtml::encode($item->hits);?></td>
                             <td>
                                 <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('artilce/edit','id'=>$item['id']));?>
                                 <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('artilce/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>

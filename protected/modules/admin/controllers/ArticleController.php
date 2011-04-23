@@ -8,12 +8,13 @@ class ArticleController extends CController
     {
         $criteria = new CDbCriteria;
         $criteria->limit = 10;
+        $criteria->order = 'a.id desc';
         $count = Article::model()->count($criteria);
         $pages = new CPagination($count);
         $pages->pageSize = 10;
         $pages->applyLimit($criteria);
         $model = Article::model()->with('category')->findAll();
-
+        
         $this->render('list',array(
             'model' => $model,
             'pages' => $pages,

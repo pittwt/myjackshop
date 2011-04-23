@@ -60,6 +60,7 @@ class Category extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
             'article' => array(self::HAS_MANY,'Article','cat_id'),
+            'articlecount' => array(self::STAT,'Article','cat_id'),
 		);
 	}
 
@@ -130,13 +131,14 @@ class Category extends CActiveRecord
     public static function getCategoryList()
     {
         $criteria = new CDbCriteria();
-        $model = self::model()->findAll($criteria);
+        $model = self::model()->with('articlecount')->findAll($criteria);
         $catearray = array();
         if(is_array($model))
         {
             foreach($model as $value)
             {
                 $catearray[$value->id] = $value->attributes;
+                $catearray[$value->id]['articlecount'] = $value->articlecount;
             }
             return self::getCategory($catearray);
         }

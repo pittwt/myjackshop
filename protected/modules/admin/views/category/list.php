@@ -22,7 +22,7 @@
                             <td><input type="checkbox" name="flid[]"></td>
                             <td><?php echo CHtml::encode($item['strpre'].' '.$item['name']);?></td>
                             <td><?php echo CHtml::encode($item['description']);?></td>
-                            <td><?php echo CHtml::encode($item['hits']);?></td>
+                            <td><?php echo CHtml::encode($item['articlecount']);?></td>
                             <td>
                                 <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('category/edit','id'=>$item['id']));?>
                                 <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('category/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
