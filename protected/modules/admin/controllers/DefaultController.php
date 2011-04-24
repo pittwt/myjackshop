@@ -2,6 +2,7 @@
 
 class DefaultController extends Controller
 {
+    public $layout = "logins";
 	public function actionIndex()
 	{
 		$this->render('index');

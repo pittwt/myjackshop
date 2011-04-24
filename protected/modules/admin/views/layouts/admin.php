@@ -11,7 +11,16 @@ cs()->registerCssFile(resBu("admin/styles/invalid.css"));
 
 ?>
 </head>
+<body>
+    <?php $this->renderPartial('../default/top');?>
+	<div id="main">
+	<?php $this->renderPartial('../default/sidebar');?>
+    
     <?php echo $content?>
+    
+    <?php $this->renderPartial('../default/foot');?>
+</div>
+</body>
 <?php
 cs()->registerCoreScript('jquery');
 cs()->registerScriptFile(resBu('scripts/global.js'), CClientScript::POS_END);
