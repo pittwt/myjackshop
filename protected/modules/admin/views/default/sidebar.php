@@ -9,14 +9,14 @@
     <ul>
     	<li class="title">内容管理</li>
         <li><a href="<?php echo $this->createUrl('article/list'); ?>">文章</a></li>
-        <li><a href="<?php echo $this->createUrl('default/start'); ?>">发布文章</a></li>
+        <li><a href="<?php echo $this->createUrl('article/add'); ?>">发布文章</a></li>
 		<li><a href="<?php echo $this->createUrl('category/list'); ?>">文章分类</a></li>
-		<li><a href="<?php echo $this->createUrl('default/start'); ?>">文章评论</a></li>
+		<li><a href="<?php echo $this->createUrl('article/list'); ?>">文章评论</a></li>
 	</ul>
 	<ul>
 		<li class="title">会员管理</li>
-		<li><a href="<?php echo $this->createUrl('default/start'); ?>">添加会员</a></li>
-		<li><a href="<?php echo $this->createUrl('default/start'); ?>">会员组管理</a></li>
+		<li><a href="<?php echo $this->createUrl('user/add'); ?>">添加会员</a></li>
+		<li><a href="<?php echo $this->createUrl('user/list'); ?>">会员组管理</a></li>
 	</ul>
 </div>
 <div class="dwindle" style="display:none;"></div>

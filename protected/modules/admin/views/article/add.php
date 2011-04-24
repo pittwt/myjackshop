@@ -1,7 +1,7 @@
 <div id="main-content">
 	<div class="content-box none-border">
 		<div class="content-title">
-			<h4>添加文章分类</h4>
+			<h4>添加文章</h4>
 		</div>
 		<div class="content-box-content none-border tabrow">
             <?php echo CHtml::beginForm(url('admin/article/add'),'post')?>
