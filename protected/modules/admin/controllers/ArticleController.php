@@ -7,13 +7,14 @@ class ArticleController extends CController
     public function actionList()
     {
         $criteria = new CDbCriteria;
-        $criteria->limit = 10;
-        $criteria->order = 'a.id desc';
+        $criteria->limit = 1;
+        //$criteria->order = 'a.id desc';
         $count = Article::model()->count($criteria);
+        //echo $count;
         $pages = new CPagination($count);
-        $pages->pageSize = 10;
+        $pages->pageSize = 1;
         $pages->applyLimit($criteria);
-        $model = Article::model()->with('category')->findAll();
+        $model = Article::model()->with('category')->findAll($criteria);
         
         $this->render('list',array(
             'model' => $model,
