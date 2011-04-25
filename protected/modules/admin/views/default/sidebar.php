@@ -9,7 +9,7 @@
     <ul>
     	<li class="title">内容管理</li>
         <li><a href="<?php echo $this->createUrl('article/list'); ?>">文章</a></li>
-        <li><a href="<?php echo $this->createUrl('article/add'); ?>">发布文章</a></li>
+        <li><a href="<?php echo $this->createUrl('article/add'); ?>">添加文章</a></li>
 		<li><a href="<?php echo $this->createUrl('category/list'); ?>">文章分类</a></li>
 		<li><a href="<?php echo $this->createUrl('article/list'); ?>">文章评论</a></li>
 	</ul>

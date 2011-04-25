@@ -17,13 +17,18 @@
                     </td>
                 </tr>
                 <tr>
+                    <td><?php echo CHtml::activeLabel($article, '排序');?></td>
+                    <td><?php echo CHtml::activeTextField($article, 'order', array('class'=>'text-input small-input'));?>
+                    </td>
+                </tr>
+                <tr>
                     <td><?php echo CHtml::activeLabel($article, '连接网址');?></td>
                     <td><?php echo CHtml::activeTextField($article, 'linkurl', array('class'=>'text-input small-input'));?>
                     </td>
                 </tr>
                 <tr>
                     <td><?php echo CHtml::activeLabel($article, '链接介绍');?></td>
-                    <td><?php echo CHtml::activeTextArea($article, 'description', array('class'=>'text-input textarea'));?>
+                    <td><?php echo CHtml::activeTextArea($article, 'description', array('class'=>'text-input textarea','cols'=>50, 'rows'=>3));?>
                     </td>
                 </tr>
                  <tr>

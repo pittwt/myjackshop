@@ -34,7 +34,7 @@ class ArticleController extends CController
     		if($article->save())
     			$this->redirect(url('admin/article/list'));
     	}
-    	$this->pageTitle = "添加文章分类";
+    	$this->pageTitle = "添加文章";
         $this->render('add', array(
         	'article' => $article,
             'catelist' => $catelist,
@@ -59,7 +59,18 @@ class ArticleController extends CController
      */
     public function actionEdit()
     {
+        $article = Article::model()->findByPk($id);
+        if(isset($_POST['article']))
+        {
+            $article->attributes = $_POST['article'];
+            if($article->save())
+                $this->refresh();
+        }
         
+        $this->pageTitle = "修改文章";
+        $this->render('edit', array(
+            'article'=>$article,
+        ));
     }
 }
 

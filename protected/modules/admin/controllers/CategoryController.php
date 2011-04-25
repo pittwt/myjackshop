@@ -44,6 +44,12 @@ class CategoryController extends CController
         if(isset($_GET['id']))
         {
             $category = Category::model()->findByPk($_GET['id']);
+            if(isset($_POST['Category']))
+            {
+                $category->attributes = $_POST['Category'];
+                if($category->save())
+                    $this->redirect(url('admin/category/list'));
+            }
             $this->pageTitle = '修改文章分类';
             $this->render('edit', array(
                 'category' => $category,

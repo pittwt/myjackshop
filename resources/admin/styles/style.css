@@ -797,7 +797,9 @@ div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !im
 #top .top-right{ float:right; margin:30px 50px 0px 0px; text-align:left; font-size:12px; color:#ccc;}
 #main { width:100%; padding-top:20px; border-top:1px solid #666;}
 #sidebar { width:150px; padding:0px 0px 0px 20px; float:left;}
-#sidebar ul{ width:150px; border:#888 solid 1px; margin-bottom:1px; }
+#sidebar ul{ width:150px; border:#888 solid 1px; margin-bottom:1px;-moz-border-radius: 3px;
+                -webkit-border-radius: 3px;
+				border-radius: 3px; margin-bottom: 10px;}
 #sidebar ul li{ line-height:24px; padding-left:10px;}
 
 #sidebar ul li.title{  background:url('../images/menu-bits.jpg') repeat-x; width:140px; line-height:22px; height:28px; padding-top:4px; font-weight:bold; text-align:left; color:#fff; vertical-align:middle;}

@@ -1,10 +1,8 @@
 <body id="login">
 	<div id="login-wrapper" class="png_bg">
 		<div id="login-top">
-
-			<h1>Simpla Admin</h1>
 			<!-- Logo (221px width) -->
-			<img id="logo" src="<?php echo resBu("admin/images/logo2.png");?>" alt="Simpla Admin logo" />
+			<img id="logo" src="<?php echo resBu("admin/images/logo2.png");?>" alt="My yiicms logo" />
 		</div> <!-- End #logn-top -->
 
 		<div id="login-content">
@@ -25,14 +23,10 @@
 					<?php echo CHtml::activePasswordField($loginModel, 'password', array('class'=>'text-input'));?>
 				</p>
 				<div class="clear"></div>
-
 				<p>
 					<input class="button" type="submit" value="登 录" />
 				</p>
-
 			<?php echo CHtml::endForm();?>
-		</div> <!-- End #login-content -->
-
-	</div> <!-- End #login-wrapper -->
-
+		</div>
+	</div>
   </body>
