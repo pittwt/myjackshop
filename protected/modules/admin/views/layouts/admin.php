@@ -27,7 +27,5 @@ cs()->registerScriptFile(resBu('scripts/global.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/admin.configuration.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/facebox.js'), CClientScript::POS_END);
 cs()->registerScriptFile(resBu('admin/scripts/jquery.wysiwyg.js'), CClientScript::POS_END);
-cs()->registerScriptFile(resBu('admin/scripts/jquery.datePicker.js'), CClientScript::POS_END);
-cs()->registerScriptFile(resBu('admin/scripts/jquery.date.js'), CClientScript::POS_END);
 ?>
 </html>

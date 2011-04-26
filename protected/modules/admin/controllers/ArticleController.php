@@ -1,5 +1,5 @@
 <?php
-class ArticleController extends CController
+class ArticleController extends Controller
 {
     /**
      * 文章列表

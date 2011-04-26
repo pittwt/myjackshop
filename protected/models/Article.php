@@ -75,7 +75,7 @@ class Article extends CActiveRecord
 			'area' => array(self::BELONGS_TO, 'Area', 'area_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'cat_id','condition'=>'category.id > 0'),
 			'album' => array(self::HAS_MANY, 'ArticleAlbum', 'article_id'),
-			'news' => array(self::HAS_ONE, 'ArticleNews', 'article_id'),
+			'comment' => array(self::HAS_MANY, 'Comment', 'id'),
 		);
 	}
 

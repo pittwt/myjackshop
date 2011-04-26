@@ -19,6 +19,24 @@
  */
 class User extends CActiveRecord
 {
+    /**
+     * 用户角色 0普通用户， 1管理员
+     */
+    const IS_NOT_MANAGE = 0;
+    const IS_MANAGE = 1;
+    public static $userRole = array(
+        self::IS_NOT_MANAGE => '普通用户',
+        self::IS_MANAGE => '管理员',
+    );
+    
+    /**
+     * 用户状态 
+     */
+    public static $states = array(
+    	STATE_DISABLED => '禁用',
+    	STATE_ENABLED => '正常'
+    );
+    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return User the static model class
