@@ -1,6 +1,36 @@
 <?php
 class ArticleController extends Controller
 {
+    private $_model;
+    
+    /**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+		);
+	}
+
+	/**
+	 * Specifies the access control rules.
+	 * This method is used by the 'accessControl' filter.
+	 * @return array access control rules
+	 */
+	public function accessRules()
+	{
+		return array(
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('list','add','edit','del'),
+				'users'=>array('@'),
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+			),
+		);
+	}
+    
     /**
      * 文章列表
      */ 
@@ -8,9 +38,7 @@ class ArticleController extends Controller
     {
         $criteria = new CDbCriteria;
         $criteria->limit = 1;
-        //$criteria->order = 'a.id desc';
         $count = Article::model()->count($criteria);
-        //echo $count;
         $pages = new CPagination($count);
         $pages->pageSize = 1;
         $pages->applyLimit($criteria);
@@ -28,16 +56,16 @@ class ArticleController extends Controller
     public function actionAdd()
     {	
     	$catelist = Category::getCategoryNamelist();
-    	$article = new Article();
+    	$model = new Article();
     	if(isset($_POST['Article']))
     	{
-    		$article->attributes = $_POST['Article'];
-    		if($article->save())
+    		$model->attributes = $_POST['Article'];
+    		if($model->save())
     			$this->redirect(url('admin/article/list'));
     	}
     	$this->pageTitle = "添加文章";
         $this->render('add', array(
-        	'article' => $article,
+        	'model' => $model,
             'catelist' => $catelist,
         ));
     }
@@ -47,8 +75,6 @@ class ArticleController extends Controller
      */
     public function actionDel()
     {
-        $catelist = Category::getCAtegoryNamelist();
-        
         if(isset($_GET['id']))
         {
         	$article = Article::model()->findByPk($_GET['id']);
@@ -60,18 +86,32 @@ class ArticleController extends Controller
      */
     public function actionEdit()
     {
-        $article = Article::model()->findByPk($id);
-        if(isset($_POST['article']))
+        $catelist = Category::getCAtegoryNamelist();
+        $model = $this->loadModel();
+        if(isset($_POST['Article']))
         {
-            $article->attributes = $_POST['article'];
-            if($article->save())
+            $model->attributes = $_POST['Article'];
+            if($model->save())
                 $this->refresh();
         }
         
         $this->pageTitle = "修改文章";
         $this->render('edit', array(
-            'article'=>$article,
+            'model'=>$model,
+            'catelist'=>$catelist
         ));
+    }
+    
+    public function loadModel()
+    {
+        if($this->_model===null)
+        {
+            if(isset($_GET['id']))
+                $this->_model = Article::model()->findByPk($_GET['id']);
+            if($this->_model === null)
+                throw new CHttpException(404, 'The requested page does not exist.');
+        }
+        return $this->_model;
     }
 }
 

@@ -19,18 +19,18 @@ class CategoryController extends CController
     public function actionAdd()
     {
         $catelist = Category::getCategoryNamelist();
-        $category = new Category();
+        $model = new Category();
         if(isset($_POST['Category']))
         {
-            $category->attributes = $_POST['Category'];
-            if($category->save())
+            $model->attributes = $_POST['Category'];
+            if($model->save())
             {
                 $this->redirect(url('admin/category/list'));
             }
         }
         $this->pageTitle = "添加文章分类";
         $this->render('add',array(
-            'category' => $category,
+            'model' => $model,
             'catelist' => $catelist,
         ));
     }
@@ -43,16 +43,16 @@ class CategoryController extends CController
         $catelist = Category::getCategoryNamelist();
         if(isset($_GET['id']))
         {
-            $category = Category::model()->findByPk($_GET['id']);
+            $model = Category::model()->findByPk($_GET['id']);
             if(isset($_POST['Category']))
             {
-                $category->attributes = $_POST['Category'];
-                if($category->save())
-                    $this->redirect(url('admin/category/list'));
+                $model->attributes = $_POST['Category'];
+                if($model->save())
+                    $this->refresh();
             }
             $this->pageTitle = '修改文章分类';
             $this->render('edit', array(
-                'category' => $category,
+                'model' => $model,
                 'catelist' => $catelist
             ));
         }

@@ -52,6 +52,7 @@ class Article extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+            array('title', 'required'),
 			array('user_id, cat_id, type_id, area_id, order, create_time, update_time, hits, comments, islink, state', 'numerical', 'integerOnly'=>true),
 			array('title, thumb, keywords', 'length', 'max'=>255),
 			array('style, linkurl', 'length', 'max'=>50),

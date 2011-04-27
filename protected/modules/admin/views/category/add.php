@@ -4,34 +4,34 @@
 			<h4>添加文章分类</h4>
 		</div>
 		<div class="content-box-content none-border tabrow">
-            <?php echo CHtml::beginForm(url('admin/category/add'),'post')?>
+            <?php $form=$this->beginWidget('CActiveForm'); ?>
             <table class="setting">
                 <tr>
-                    <td><?php echo CHtml::activeLabel($category, '分类名称');?></td>
-                    <td><?php echo CHtml::activeTextField($category, 'name', array('class'=>'text-input small-input'));?>
+                    <td><?php echo $form->labelEx($model, 'name');?></td>
+                    <td><?php echo $form->textField($model, 'name', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'name');?></a></td>
+                </tr>
+                <tr>
+                    <td><?php echo $form->labelEx($model, 'parent_id');?></td>
+                    <td><?php echo $form->dropDownList($model, 'parent_id', $catelist, array('empty'=>'顶级分类','id'=>'parent_id'));?>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php echo CHtml::activeLabel($category, '上级分类');?></td>
-                    <td><?php echo CHtml::activeDropDownList($category, 'parent_id', $catelist, array('empty'=>'顶级分类','id'=>'parent_id'));?>
+                    <td><?php echo $form->labelEx($model, 'linkurl');?></td>
+                    <td><?php echo $form->textField($model, 'linkurl', array('class'=>'text-input small-input'));?>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php echo CHtml::activeLabel($category, '连接网址');?></td>
-                    <td><?php echo CHtml::activeTextField($category, 'linkurl', array('class'=>'text-input small-input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo CHtml::activeLabel($category, '链接介绍');?></td>
-                    <td><?php echo CHtml::activeTextArea($category, 'description', array('class'=>'text-input textarea'));?>
+                    <td><?php echo $form->labelEx($model, 'description');?></td>
+                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea', 'cols'=>50, 'rows'=>3));?>
                     </td>
                 </tr>
                  <tr>
                     <td></td>
-                    <td><input class="button" type="submit" value="修改" /></td>
+                    <td><?php echo CHtml::submitButton('submit', array('class'=>'button', 'value'=>'添加分类'));?></td>
                 </tr>
             </table>
-            <?php echo CHtml::endForm();?>
+            <?php $this->endWidget();?>
 		</div>
 	</div>
 </div>
