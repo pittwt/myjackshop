@@ -74,14 +74,14 @@ class Friendlink extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'name' => 'Name',
-			'linkurl' => 'Linkurl',
-			'logo' => 'Logo',
-			'description' => 'Description',
-			'order' => 'Order',
-			'isvalid' => 'Isvalid',
-			'create_time' => 'Create Time',
-			'create_ip' => 'Create Ip',
+			'name' => '链接名称',
+			'linkurl' => '链接地址',
+			'logo' => '链接Logo',
+			'description' => '描述',
+			'order' => '排序',
+			'isvalid' => '审核',
+			'create_time' => '添加时间',
+			'create_ip' => '添加Ip',
 		);
 	}
 

@@ -72,16 +72,16 @@ class UserInfo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_id' => 'User',
-			'area_id' => 'Area',
-			'birthday' => 'Birthday',
-			'gender' => 'Gender',
-			'portrait' => 'Portrait',
-			'telphone' => 'Telphone',
-			'mobile' => 'Mobile',
+			'user_id' => '用户',
+			'area_id' => '地区',
+			'birthday' => '生日',
+			'gender' => '性别',
+			'portrait' => '头像',
+			'telphone' => '电话',
+			'mobile' => '手机',
 			'qq' => 'Qq',
 			'msn' => 'Msn',
-			'postcode' => 'Postcode',
+			'postcode' => '邮编',
 		);
 	}
 

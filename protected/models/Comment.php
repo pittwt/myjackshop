@@ -71,13 +71,13 @@ class Comment extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'article_id' => 'Article',
-			'user_id' => 'User',
-			'nick' => 'Nick',
-			'content' => 'Content',
-			'create_time' => 'Create Time',
-			'create_ip' => 'Create Ip',
-			'status' => 'Status',
+			'article_id' => '文章',
+			'user_id' => '用户',
+			'nick' => '昵称',
+			'content' => '评论内容',
+			'create_time' => '评论时间',
+			'create_ip' => '评论Ip',
+			'status' => '状态',
 		);
 	}
 

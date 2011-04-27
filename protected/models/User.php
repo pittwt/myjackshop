@@ -62,8 +62,10 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+            array('username','required'),
 			array('state, ismanage, login_nums, create_time, last_login_time', 'numerical', 'integerOnly'=>true),
 			array('username, email, realname', 'length', 'max'=>50),
+            array('email', 'email'),
 			array('password', 'length', 'max'=>32),
 			array('create_ip, last_login_ip', 'length', 'max'=>15),
 			// The following rule is used by search().
@@ -93,17 +95,17 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'username' => 'Username',
-			'password' => 'Password',
+			'username' => '用户名',
+			'password' => '密码',
 			'email' => 'Email',
-			'state' => 'State',
-			'realname' => 'Realname',
-			'login_nums' => 'Login Nums',
-			'create_time' => 'Create Time',
-			'create_ip' => 'Create Ip',
-			'last_login_time' => 'Last Login Time',
-			'last_login_ip' => 'Last Login Ip',
-			'ismanage' => 'Ismanage',
+			'state' => '状态',
+			'realname' => '真实姓名',
+			'login_nums' => '登录次数',
+			'create_time' => '注册时间',
+			'create_ip' => '注册IP',
+			'last_login_time' => '上次登录时间',
+			'last_login_ip' => '上次登录IP',
+			'ismanage' => '角色',
 		);
 	}
 

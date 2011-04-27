@@ -26,8 +26,13 @@ class UserController extends Controller
      */
     public function actionAdd()
     {
-        $criteria = new CDbCriteria;
-        $model = User::model()->findAll($criteria);
+        $model = new User;
+        if(isset($_POST['User']))
+        {
+            $model->attributes = $_POST['User'];
+            if($model->save())
+                $this->redirect(url('admin/user/list'));
+        }
         $this->pageTitle = '添加用户';
         $this->render('add', array(
             'model' => $model,

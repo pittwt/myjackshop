@@ -71,15 +71,15 @@ class Category extends CActiveRecord
 	{
 		return array(
 			'id' => 'Id',
-			'parent_id' => 'Parent',
-			'model' => 'Model',
-			'name' => 'Name',
-			'description' => 'Description',
-			'islink' => 'Islink',
-			'linkurl' => 'Linkurl',
-			'template' => 'Template',
-			'ismenu' => 'Ismenu',
-			'hits' => 'Hits',
+			'parent_id' => '上级分类',
+			'model' => '模型',
+			'name' => '分类名称',
+			'description' => '描述',
+			'islink' => '链接',
+			'linkurl' => '链接地址',
+			'template' => '模板',
+			'ismenu' => '菜单',
+			'hits' => '查看次数',
 		);
 	}
 

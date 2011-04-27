@@ -815,7 +815,7 @@ div.wysiwyg iframe { border: 0; margin: 5px 0 0 0; clear: left; width: 97.5% !im
 .pages ul li{ background: none; font-size: 12px;}
 .add {border-radius: 4px 4px 4px 4px;background: #004995 url('../images/bg-button-green.gif') top left repeat-x !important;border: 1px solid #004995 !important;padding: 4px 7px 4px 7px !important;color: #fff !important;}
 .add a{ color: #fff;}
-
-
+.errorMessage {color:red;}
+span.required{ color: red; font-weight: normal;}
 
 

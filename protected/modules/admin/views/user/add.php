@@ -4,39 +4,42 @@
 			<h4>添加文章</h4>
 		</div>
 		<div class="content-box-content none-border tabrow">
-            <?php echo CHtml::beginForm(url(''),'post')?>
+            <?php $form=$this->beginWidget('CActiveForm'); ?>
             <table class="setting">
                 <tr>
-                    <td><?php echo CHtml::activeLabel($model, '用户名');?></td>
-                    <td><?php echo CHtml::activeTextField($model, 'username', array('class'=>'text-input small-input'));?>
+                    <td><?php echo $form->labelEx($model,'username'); ?></td>
+                    <td><?php echo $form->textField($model,'username',array('maxlength'=>255,'class'=>'text-input small-input')); ?>
+                    <?php echo $form->error($model,'username'); ?> </td>
+                </tr>
+                <tr>
+                    <td><?php echo $form->labelEx($model, 'password');?></td>
+                    <td><?php echo $form->textField($model, 'password', array('maxlength'=>15,'class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model,'password'); ?>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php echo CHtml::activeLabel($model, 'Email');?></td>
-                    <td><?php echo CHtml::activeTextField($model, 'email', array('class'=>'text-input small-input'));?>
+                    <td><?php echo $form->labelEx($model,'Email'); ?></td>
+                    <td><?php echo $form->textField($model,'email',array('class'=>'text-input small-input')); ?>
+                    <?php echo $form->error($model,'email'); ?>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><?php echo $form->labelEx($model, '状态');?></td>
+                    <td><?php echo $form->radioButtonList($model, 'state',User::$states);?>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php echo CHtml::activeLabel($model, '密码');?></td>
-                    <td><?php echo CHtml::activeTextField($model, 'password', array('class'=>'text-input small-input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo CHtml::activeLabel($model, '状态');?></td>
-                    <td><?php echo CHtml::activeTextField($model, 'state', array('class'=>'text-input small-input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo CHtml::activeLabel($model, '角色');?></td>
-                    <td><?php echo CHtml::activeTextArea($model, 'ismanage', array('class'=>'text-input textarea','cols'=>50, 'rows'=>3));?>
+                    <td><?php echo $form->labelEx($model, '角色');?></td>
+                    <td><?php echo $form->radioButtonList($model, 'ismanage',User::$userRole);?>
                     </td>
                 </tr>
                  <tr>
                     <td></td>
-                    <td><input class="button" type="submit" value="修改" /></td>
+                    <td><?php echo CHtml::submitButton('submit', array('class'=>'button', 'value'=>'添加'));?></td>
                 </tr>
             </table>
-            <?php echo CHtml::endForm();?>
+            <?php $this->endWidget(); ?> 
 		</div>
 	</div>
 </div>
