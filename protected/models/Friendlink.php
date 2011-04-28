@@ -46,9 +46,11 @@ class Friendlink extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+            array('name', 'required'),
 			array('isvalid, order, create_time', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('linkurl, logo, description', 'length', 'max'=>255),
+            array('linkurl', 'url'),
 			array('create_ip', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

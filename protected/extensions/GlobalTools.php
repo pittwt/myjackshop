@@ -21,7 +21,28 @@ class GlobalTools
 	 	} else {
 	      $ip = getenv('REMOTE_ADDR');
 	 	}
-        
         return $ip;
     }
+
+	/**
+	 * 返回文件上传路径
+	 */
+    public static function uploadPathName($pathName)
+    {
+        $pathName = $pathName.'/'. date('Y/m/d') .'/';
+        $basePath = Yii::app()->params['attachmentsBasePath'] . $pathName;
+        return array(
+            'basePath' => $basePath,
+            'pathName' => $pathName
+        );
+    }
+    
+    /**
+	 * 返回上传文件名称
+	 */
+    public static function uploadFileName($extension)
+    {
+        return date('YmdHis').rand(1000,9999).'.'.$extension;
+    }
+    
 }

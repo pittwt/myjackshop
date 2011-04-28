@@ -4,40 +4,39 @@
 			<h4>友情链接</h4>
 		</div>
 		<div class="content-box-content none-border tabrow">
-            <?php echo CHtml::beginForm(url('admin/settings/addfriendlink'),'post')?>
+            <?php $form=$this->beginWidget('CActiveForm'); ?>
             <table class="setting">
                 <tr>
-                    <td><?php echo CHtml::activeLabel($friendlink, '连接名称');?></td>
-                    <td><?php echo CHtml::activeTextField($friendlink, 'name', array('class'=>'text-input small-input'));?>
+                    <td><?php echo $form->labelEx($model, 'name');?></td>
+                    <td><?php echo $form->textField($model, 'name', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'name')?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $form->labelEx($model, 'linkurl');?></td>
+                    <td><?php echo $form->textField($model, 'linkurl', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'linkurl')?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $form->labelEx($model, 'order');?></td>
+                    <td><?php echo $form->textField($model, 'order', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'order')?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $form->labelEx($model, 'isvalid');?></td>
+                    <td><?php echo $form->radioButtonList($model,'isvalid',Friendlink::$static, array('separator'=>'&nbsp;'));?>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php echo CHtml::activeLabel($friendlink, '连接网址');?></td>
-                    <td><?php echo CHtml::activeTextField($friendlink, 'linkurl', array('class'=>'text-input small-input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo CHtml::activeLabel($friendlink, '排序');?></td>
-                    <td>
-                    <?php echo CHtml::activeTextField($friendlink, 'order', array('class'=>'text-input small-input'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo CHtml::activeLabel($friendlink, '状态');?></td>
-                    <td><?php echo CHtml::activeRadioButtonList($friendlink,'isvalid',Friendlink::$static, array('separator'=>'&nbsp;'));?>
-                    </td>
-                </tr>
-                <tr>
-                    <td><?php echo CHtml::activeLabel($friendlink, '链接介绍');?></td>
-                    <td><?php echo CHtml::activeTextArea($friendlink, 'description', array('class'=>'text-input textarea'));?>
+                    <td><?php echo $form->labelEx($model, 'description');?></td>
+                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea'));?>
                     </td>
                 </tr>
                  <tr>
                     <td></td>
-                    <td><input class="button" type="submit" value="修改" /></td>
+                    <td><?php echo CHtml::submitButton('添加', array('class'=>'button'));?></td>
                 </tr>
             </table>
-            <?php echo CHtml::endForm();?>
+            <?php $this->endWidget();?>
 		</div>
 	</div>
 </div>

@@ -46,6 +46,7 @@ class Category extends CActiveRecord
 			array('islink, ismenu, parent_id, hits', 'numerical', 'integerOnly'=>true),
 			array('model, name, template', 'length', 'max'=>50),
 			array('description, linkurl', 'length', 'max'=>255),
+            array('linkurl', 'url'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, parent_id, model, name, description, islink, linkurl, template, ismenu, hits', 'safe', 'on'=>'search'),
@@ -126,7 +127,7 @@ class Category extends CActiveRecord
 		return self::model()->findAll();
 	}
 	
-/**
+    /**
      * 获取分类id列表
      */
     public static function getCategoryList()

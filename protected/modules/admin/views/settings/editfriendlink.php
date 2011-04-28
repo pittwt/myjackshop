@@ -4,37 +4,39 @@
 			<h4>友情链接</h4>
 		</div>
 		<div class="content-box-content none-border tabrow">
-            <form method="post" action="" name="EditFriendlink">
+            <?php $form = $this->beginWidget('CActiveForm');?>
             <table class="setting">
                 <tr>
-                    <td>连接名称</td>
-                    <td><input class="text-input small-input" value="<?php echo CHtml::encode($friendlink->name); ?>" type="text" name="friendlink[name]" /></td>
+                    <td><?php echo $form->labelEx($model, 'name');?></td>
+                    <td><?php echo $form->textField($model, 'name', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'name')?></td>
                 </tr>
                 <tr>
-                    <td>连接网址</td>
-                    <td><input class="text-input small-input" value="<?php echo CHtml::encode($friendlink->linkurl); ?>" type="text" name="friendlink[linkurl]" /></td>
+                    <td><?php echo $form->labelEx($model, 'linkurl');?></td>
+                    <td><?php echo $form->textField($model, 'linkurl', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'linkurl')?></td>
                 </tr>
                 <tr>
-                    <td>排序</td>
-                    <td><input class="text-input small-input" value="<?php echo CHtml::encode($friendlink->order); ?>" type="text" name="friendlink[order]" /></td>
+                    <td><?php echo $form->labelEx($model, 'order');?></td>
+                    <td><?php echo $form->textField($model, 'order', array('class'=>'text-input small-input'));?>
+                    <?php echo $form->error($model, 'order')?></td>
                 </tr>
                 <tr>
-                    <td>状态</td>
-                    <td>
-                    <input value="1"<?php echo $friendlink->isvalid ? ' checked="checked"' : '' ;?> type="radio" name="friendlink[isvalid]" />显示
-                    <input value="0"<?php echo $friendlink->isvalid ? '' : ' checked="checked"' ;?> type="radio" name="friendlink[isvalid]" />不显示
+                    <td><?php echo $form->labelEx($model, 'isvalid');?></td>
+                    <td><?php echo $form->radioButtonList($model,'isvalid',Friendlink::$static, array('separator'=>'&nbsp;'));?>
                     </td>
                 </tr>
                 <tr>
-                    <td>链接介绍</td>
-                    <td><textarea class="text-input textarea" type="text" name="friendlink[description]" /><?php echo CHtml::encode($friendlink->description); ?></textarea></td>
+                    <td><?php echo $form->labelEx($model, 'description');?></td>
+                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea'));?>
+                    </td>
                 </tr>
                  <tr>
                     <td></td>
-                    <td><input class="button" type="submit" value="修改" /></td>
+                    <td><?php echo CHtml::submitButton('修改友情链接', array('class'=>'button'));?></td>
                 </tr>
             </table>
-            </form>
+            <?php $this->endWidget();?>
 		</div>
 	</div>
 </div>

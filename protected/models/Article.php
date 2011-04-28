@@ -27,6 +27,8 @@
  */
 class Article extends CActiveRecord
 {
+    public $thumb;
+    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Article the static model class
@@ -58,6 +60,7 @@ class Article extends CActiveRecord
 			array('style, linkurl', 'length', 'max'=>50),
 			array('description', 'safe'),
 			array('create_ip, update_ip', 'length', 'max'=>15),
+            array('thumb', 'file', 'types'=>'jpg, gif, png'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, user_id, cat_id, type_id, area_id, title, style, thumb, keywords, description, order, islink, linkurl, create_time, create_ip, update_time, update_ip, state, hits, comments', 'safe', 'on'=>'search'),
@@ -75,7 +78,6 @@ class Article extends CActiveRecord
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'area' => array(self::BELONGS_TO, 'Area', 'area_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'cat_id','condition'=>'category.id > 0'),
-			'album' => array(self::HAS_MANY, 'ArticleAlbum', 'article_id'),
 			'comment' => array(self::HAS_MANY, 'Comment', 'id'),
 		);
 	}

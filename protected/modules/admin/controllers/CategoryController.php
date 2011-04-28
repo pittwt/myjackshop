@@ -1,6 +1,8 @@
 <?php
 class CategoryController extends CController
 {
+    private $_model;
+    
     /**
      * 分类列表
      */
@@ -43,7 +45,7 @@ class CategoryController extends CController
         $catelist = Category::getCategoryNamelist();
         if(isset($_GET['id']))
         {
-            $model = Category::model()->findByPk($_GET['id']);
+            $model = $this->loadModel();
             if(isset($_POST['Category']))
             {
                 $model->attributes = $_POST['Category'];
@@ -69,7 +71,7 @@ class CategoryController extends CController
     {
         if(isset($_GET['id']))
         {
-            $category = Category::model()->findByPk($_GET['id']);
+            $model = $this->loadModel();
             if($category->delete())
             {
                 $this->redirect(url('admin/category/list'));
@@ -77,7 +79,17 @@ class CategoryController extends CController
         }
     }
      
-    
+    public function loadModel()
+    {
+        if($this->_model===null)
+        {
+            if(isset($_GET['id']))
+                $this->_model = Category::model()->findByPk($_GET['id']);
+            if($this->_model === null)
+                throw new CHttpException(404, 'The requested page does not exist.');
+        }
+        return $this->_model;
+    }
     
 }
 ?>

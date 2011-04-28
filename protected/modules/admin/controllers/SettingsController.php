@@ -66,11 +66,11 @@ class SettingsController extends Controller
      */
     public function actionAddFriendlink()
     {
-        $friendlink = new Friendlink();
+        $model = new Friendlink();
         if(isset($_POST['Friendlink']))
         {
-            $friendlink->attributes = $_POST['Friendlink'];
-            if($friendlink->save())
+            $model->attributes = $_POST['Friendlink'];
+            if($model->save())
             {
                 $this->redirect(url('admin/settings/friendlink'));
             }
@@ -78,7 +78,7 @@ class SettingsController extends Controller
         
         $this->pageTitle = "添加友情链接";
         $this->render('addfriendlink', array(
-            'friendlink' => $friendlink,
+            'model' => $model,
         ));
         
     }
@@ -90,19 +90,16 @@ class SettingsController extends Controller
 	{
 		if(isset($_GET['id']))
 		{
-			if(isset($_POST['friendlink']))
+            $model=Friendlink::model()->findbyPk($_GET['id']);
+			if(isset($_POST['Friendlink']))
 			{
-				$friendlink = Friendlink::model()->findbyPk($_GET['id']);
-				$friendlink->attributes=$_POST['friendlink'];
-				if($friendlink->save())
-					$this->redirect(url('admin/settings/friendlink'));
+				$model->attributes=$_POST['Friendlink'];
+				if($model->save())
+					$this->refresh();
 			}
-			else
-			{
-				$friendlink=Friendlink::model()->findbyPk($_GET['id']);
-				$this->render('editfriendlink',array(
-					'friendlink'=>$friendlink));
-			}
+			$this->render('editfriendlink',array(
+			     'model'=>$model));
+
 		}
 		else
 		{

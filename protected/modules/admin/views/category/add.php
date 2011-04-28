@@ -19,7 +19,7 @@
                 <tr>
                     <td><?php echo $form->labelEx($model, 'linkurl');?></td>
                     <td><?php echo $form->textField($model, 'linkurl', array('class'=>'text-input small-input'));?>
-                    </td>
+                    <?php echo $form->error($model, 'linkurl');?></td>
                 </tr>
                 <tr>
                     <td><?php echo $form->labelEx($model, 'description');?></td>
