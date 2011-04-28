@@ -60,7 +60,7 @@ class Article extends CActiveRecord
 			array('style, linkurl', 'length', 'max'=>50),
 			array('description', 'safe'),
 			array('create_ip, update_ip', 'length', 'max'=>15),
-            array('thumb', 'file', 'types'=>'jpg, gif, png'),
+            array('thumb', 'file', 'allowEmpty'=>true,'types'=>'jpg, gif, png'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, user_id, cat_id, type_id, area_id, title, style, thumb, keywords, description, order, islink, linkurl, create_time, create_ip, update_time, update_ip, state, hits, comments', 'safe', 'on'=>'search'),

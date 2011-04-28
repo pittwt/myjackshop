@@ -91,21 +91,21 @@ class ArticleController extends Controller
         if(isset($_POST['Article']))
         {
             $model->attributes = $_POST['Article'];
-            $thumb=CUploadedFile::getInstance($model,'thumb');
-            $filePath = GlobalTools::uploadPathName('article');
-            $fileName = GlobalTools::uploadFileName($thumb->extensionName);
-            GlobalTools::mkdirs($filePath['pathName']);
-            $model->thumb = $filePath['pathName'] . $fileName;
-            //echo $filePath['basePath']."**".$fileName;exit;
-            //if($model->thumb->hasError || !$model->thumb)
-            //    $error = '您未选择图片或图片格式不正确！';
+            if($model->thumb)
+            {
+                $thumb=CUploadedFile::getInstance($model,'thumb');
+                $filePath = GlobalTools::uploadPathName('article');
+                $fileName = GlobalTools::uploadFileName($thumb->extensionName);
+                GlobalTools::mkdirs($filePath['basePath']);
+                $model->thumb = $filePath['pathName'] . $fileName;
+            }
             
             if($model->save())
             {
-                if($thumb->saveAs($filePath['basePath'].$fileName))
-                    $this->refresh();
+                if($model->thumb != null)
+                    $thumb->saveAs($filePath['basePath'].$fileName);
+                $this->refresh();
             }
-            
         }
         
         $this->pageTitle = "修改文章";
