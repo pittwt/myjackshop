@@ -4,7 +4,7 @@
 			<h4>添加文章</h4>
 		</div>
 		<div class="content-box-content none-border tabrow">
-            <?php $form=$this->beginWidget('CActiveForm'); ?>
+            <?php $form=$this->beginWidget('CActiveForm',array('htmlOptions'=>array('enctype'=>'multipart/form-data'))); ?>
             <table class="setting">
                 <tr>
                     <td><?php echo $form->labelEx($model, 'title'); ?></td>
@@ -16,6 +16,13 @@
                     <td><?php echo $form->labelEx($model, 'cat_id');?></td>
                     <td><?php echo $form->dropDownList($model, 'cat_id', $catelist, array('empty'=>'顶级分类','id'=>'cat_id'));?>
                     <?php echo $form->error($model,'cat_id'); ?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $form->labelEx($model, 'thumb'); ?></td>
+                    <td>
+                        <?php echo $form->fileField($model, 'thumb'); ?>
+                        <?php echo $form->error($model,'thumb'); ?>
+                    </td>
                 </tr>
                 <tr>
                     <td><?php echo $form->labelEx($model, 'order');?></td>

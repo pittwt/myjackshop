@@ -59,9 +59,24 @@ class ArticleController extends Controller
     	$model = new Article();
     	if(isset($_POST['Article']))
     	{
-    		$model->attributes = $_POST['Article'];
-    		if($model->save())
-    			$this->redirect(url('admin/article/list'));
+    	    $model->attributes = $_POST['Article'];
+            $thumb=CUploadedFile::getInstanceByName('Article[thumb]');
+            if($thumb)
+            {
+                $filePath = GlobalTools::uploadPathName('article');
+                $fileName = GlobalTools::uploadFileName($thumb->extensionName);
+                GlobalTools::mkdirs($filePath['basePath']);
+                $model->thumb = $filePath['pathName'] . $fileName;
+            }
+            else
+                unset($model->thumb);
+
+            if($model->save())
+            {
+                if($thumb)
+                    $thumb->saveAs($filePath['basePath'].$fileName);
+                $this->redirect(url('admin/article/list'));
+            }    			
     	}
     	$this->pageTitle = "添加文章";
         $this->render('add', array(
@@ -91,18 +106,20 @@ class ArticleController extends Controller
         if(isset($_POST['Article']))
         {
             $model->attributes = $_POST['Article'];
-            if($model->thumb)
+            $thumb=CUploadedFile::getInstanceByName('Article[thumb]');
+            if($thumb)
             {
-                $thumb=CUploadedFile::getInstance($model,'thumb');
                 $filePath = GlobalTools::uploadPathName('article');
                 $fileName = GlobalTools::uploadFileName($thumb->extensionName);
                 GlobalTools::mkdirs($filePath['basePath']);
                 $model->thumb = $filePath['pathName'] . $fileName;
             }
+            else
+                unset($model->thumb);
             
             if($model->save())
             {
-                if($model->thumb != null)
+                if($thumb)
                     $thumb->saveAs($filePath['basePath'].$fileName);
                 $this->refresh();
             }

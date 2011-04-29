@@ -1,3 +1,11 @@
+
+<script type="text/javascript" src="<?php echo resBu('xheditor/xheditor.min.js?v=1.0.0-final');?>"></script>
+<script type="text/javascript">
+var introeditor;
+$(function(){
+	introeditor=$("#description").xheditor({skin:'vista',tools:"Cut,Copy,Paste,Pastetext,Separator,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,Separator,Align,List,Outdent,Indent,Separator,Link,Unlink,Img,Table,Separator,Source,Fullscreen,About"});
+});
+</script>
 <div id="main-content">
 	<div class="content-box none-border">
 		<div class="content-title">
@@ -19,7 +27,8 @@
                 </tr>
                 <tr>
                     <td><?php echo $form->labelEx($model, 'thumb'); ?></td>
-                    <td><?php echo $form->fileField($model, 'thumb'); ?>
+                    <td><img width="100" height="100" src="<?php echo sbu().'/'.$model->thumb?>" />
+                    <?php echo $form->fileField($model, 'thumb'); ?>
                     <?php echo $form->error($model,'thumb'); ?>
                     </td>
                 </tr>
@@ -35,7 +44,7 @@
                 </tr>
                 <tr>
                     <td><?php echo $form->labelEx($model, 'description');?></td>
-                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea','cols'=>50, 'rows'=>3));?>
+                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea', 'id'=>'description', 'cols'=>80, 'rows'=>3));?>
                     <?php echo $form->error($model,'description'); ?></td>
                 </tr>
                  <tr>
@@ -48,3 +57,4 @@
 	</div>
 </div>
 <div class="clear"></div>
+
