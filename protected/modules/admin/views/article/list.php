@@ -19,7 +19,7 @@
                     <td><input type="checkbox" name="flid[]"></td>
                     <td><?php echo CHtml::encode($item->title);?></td>
                     <td><?php echo CHtml::encode($item->category->name);?></td>
-                    <td><?php echo CHtml::encode($item->description);?></td>
+                    <td><?php echo substr($item->description, 0, 120);?></td>
                     <td><?php echo CHtml::encode($item->hits);?></td>
                     <td>
                         <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('article/edit','id'=>$item['id']));?>

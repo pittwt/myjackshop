@@ -2,7 +2,7 @@
 	<div id="login-wrapper" class="png_bg">
 		<div id="login-top">
 			<!-- Logo (221px width) -->
-			<img id="logo" src="<?php echo resBu("admin/images/logo2.png");?>" alt="My yiicms logo" />
+			<img id="logo" src="<?php echo resBu("admin/images/logo.png");?>" alt="My yiicms logo" />
 		</div> <!-- End #logn-top -->
 
 		<div id="login-content">
