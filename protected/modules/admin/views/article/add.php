@@ -1,3 +1,10 @@
+<script type="text/javascript" src="<?php echo resBu('xheditor/xheditor.min.js?v=1.0.0-final');?>"></script>
+<script type="text/javascript">
+var introeditor;
+$(function(){
+	introeditor=$("#description").xheditor({skin:'o2007silver',tools:"Cut,Copy,Paste,Pastetext,Separator,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,Separator,Align,List,Outdent,Indent,Separator,Link,Unlink,Img,Table,Separator,Source,Fullscreen,About"});
+});
+</script>
 <div id="main-content">
 	<div class="content-box none-border">
 		<div class="content-title">
@@ -36,7 +43,7 @@
                 </tr>
                 <tr>
                     <td><?php echo $form->labelEx($model, 'description');?></td>
-                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea','cols'=>50, 'rows'=>3));?>
+                    <td><?php echo $form->textArea($model, 'description', array('id'=>'description', 'class'=>'text-input textarea','cols'=>100, 'rows'=>5));?>
                     <?php echo $form->error($model,'description'); ?></td>
                 </tr>
                  <tr>

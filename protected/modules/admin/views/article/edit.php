@@ -1,9 +1,8 @@
-
 <script type="text/javascript" src="<?php echo resBu('xheditor/xheditor.min.js?v=1.0.0-final');?>"></script>
 <script type="text/javascript">
 var introeditor;
 $(function(){
-	introeditor=$("#description").xheditor({skin:'vista',tools:"Cut,Copy,Paste,Pastetext,Separator,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,Separator,Align,List,Outdent,Indent,Separator,Link,Unlink,Img,Table,Separator,Source,Fullscreen,About"});
+	introeditor=$("#description").xheditor({skin:'o2007silver',tools:"Cut,Copy,Paste,Pastetext,Separator,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,Separator,Align,List,Outdent,Indent,Separator,Link,Unlink,Img,Table,Separator,Source,Fullscreen,About"});
 });
 </script>
 <div id="main-content">
@@ -44,7 +43,7 @@ $(function(){
                 </tr>
                 <tr>
                     <td><?php echo $form->labelEx($model, 'description');?></td>
-                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea', 'id'=>'description', 'cols'=>80, 'rows'=>3));?>
+                    <td><?php echo $form->textArea($model, 'description', array('class'=>'text-input textarea', 'id'=>'description', 'cols'=>100, 'rows'=>5));?>
                     <?php echo $form->error($model,'description'); ?></td>
                 </tr>
                  <tr>

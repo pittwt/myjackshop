@@ -363,6 +363,10 @@ ul.content-box-tabs li a.current {
                 padding: 10px;
                 line-height: 1.3em;
                 }
+#main-content table td table td,
+#main-content table th table th {
+                padding: 1px 3px;
+                }
 
 #main-content table tfoot td .bulk-actions {
                 padding: 15px 0 5px 0;
@@ -455,7 +459,7 @@ form fieldset legend {
                 }
 
 form p small {
-                font-size: 0.75em;
+                font-size: 12px;
                 color: #777;
                 }
 
