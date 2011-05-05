@@ -1,7 +1,11 @@
 /*=== PageNavi. ===*/
-.wp-pagenavi { border-top:1px solid #dfdfdf; clear:both; font: normal 13px Arial, Helvetica, sans-serif; margin:10px auto; text-align:right; color:#666; padding:20px 10px;}
-.wp-pagenavi a,
-.wp-pagenavi .current { color:#000; border:1px solid #e8e8e8; margin-left:3px; padding:5px 10px; text-decoration:none; background:#fdfdfd;}
-.wp-pagenavi a:hover,
-.wp-pagenavi .current { background:#000; color:#fff; border:1px solid #000; }
-.wp-pagenavi .pages { float:left;}
+.pagenavi { border-top:1px solid #dfdfdf; clear:both; font: normal 13px Arial, Helvetica, sans-serif; margin:10px auto; text-align:right; color:#666; padding:20px 10px;}
+
+ul.yiiPager{font-size:12px;	border:0;margin:0;	padding:0;	line-height:100%;display:inline;}
+ul.yiiPager li{display:inline;}
+ul.yiiPager a:link,ul.yiiPager a:visited{border:solid 1px #333;font-weight:bold;color:#333;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;padding:3px 8px;text-decoration:none;}
+ul.yiiPager .page a{font-weight:normal;}
+ul.yiiPager a:hover{border:solid 1px #000; background: #000; color: #fff;}
+ul.yiiPager .selected a{background:#000;color:#FFFFFF;font-weight:bold;}
+ul.yiiPager .hidden a{	border:solid 1px #333;	color:#888888;}
+ul.yiiPager .first,ul.yiiPager .last{	display:none;}

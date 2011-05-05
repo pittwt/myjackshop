@@ -4,14 +4,29 @@ class SiteController extends Controller
 {
 
 	public function actionIndex()
-	{
-		$this->pageTitle = '看什么？尽在看什么网';
+	{	
 		$criteria = new CDbCriteria();
-		$criteria->addColumnCondition(array('isvalid'=>'1'));
+		$criteria->addColumnCondition(array('state'=>'1'));
 		$criteria->order = 't.order desc';
-		$friendlink = Friendlink::model()->findAll($criteria);
+        $pages = new CPagination(Article::model()->count($criteria));
+        $pages->pageSize = 10;
+        $pages->applyLimit($criteria);
+        //文章
+		$article = Article::model()->with('category','commentCount')->findAll($criteria);
+        //友情链接
+        $criteria = new CDbCriteria();
+        $criteria->addColumnCondition(array('isvalid'=>'1'));
+        $criteria->order = 't.order desc';
+        $friendlink = Friendlink::model()->findAll($criteria);
+        //文章分类
+        $category = Category::getCategoryList();
+        
+        $this->pageTitle = 'My-yiicms';
 		$this->render('index', array(
-			'friendlink'=>$friendlink
+			'article' => $article,
+            'friendlink' => $friendlink,
+            'category' => $category,
+            'pages' => $pages
 		));
 	}
 

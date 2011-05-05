@@ -190,3 +190,6 @@ select { padding:1px; }
 .article ul li .article_content { line-height:22px; padding-top:8px;}
 .left { float:left;}
 .right { float:right;}
+ul.rlist { padding: 5px 0px 0px 10px;}
+ul.rlist li{ line-height: 22px;}
+ul.rlist li a{ color: #666;}

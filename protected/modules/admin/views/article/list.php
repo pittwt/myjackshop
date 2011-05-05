@@ -36,6 +36,7 @@
                 	    'lastPageLabel' => '末页',
                 	    'nextPageLabel' => '下一页',
                 	    'prevPageLabel' => '上一页',
+                        'cssFile' =>resBu('style/pagenavi.css'),
                 	));?>
                 </div>
             </div>

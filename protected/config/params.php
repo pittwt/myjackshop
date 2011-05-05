@@ -2,10 +2,8 @@
 
 return array(
 	// 管理员邮箱
-	'adminEmail' => 'bevin1984@gmail.com',
-
-	'siteKeywords' => '看美女,看帅哥,看电影,看笑话',
-
+	'adminEmail' => 'taoanton@gmail.com',
+	'siteKeywords' => 'My-yiicms',
 	'attachmentsBaseUrl' => array('http://localhost/my-yiicms/attachments'),
     'attachmentsBasePath' => dirname(__FILE__) . DS . '..' . DS . '..' . DS . 'attachments' . DS,
     'resourceBaseUrl' => array('http://localhost/my-yiicms/resources/'),

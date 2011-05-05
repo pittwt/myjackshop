@@ -43,7 +43,7 @@ $(document).ready(function() {
 
 		
 			// radius Box
-	$('.wp-pagenavi a, .wp-pagenavi .current').css({"border-radius": "3px", "-moz-border-radius":"3px", "-webkit-border-radius":"3px"});
-	$('.post-commets a ').css({"border-radius": "3px", "-moz-border-radius":"3px", "-webkit-border-radius":"3px"});	
+	//$('.pagenavi a, .pagenavi .current').css({"border-radius": "3px", "-moz-border-radius":"3px", "-webkit-border-radius":"3px"});
+	//$('.post-commets a ').css({"border-radius": "3px", "-moz-border-radius":"3px", "-webkit-border-radius":"3px"});	
 	
 });

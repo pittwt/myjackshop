@@ -45,4 +45,33 @@ class GlobalTools
         return date('YmdHis').rand(1000,9999).'.'.$extension;
     }
     
+    /**
+     * 截取字符串
+     */
+    public static function sub_str($str,$len,$append = true) {
+    	if (strlen($str) > $len) {
+    		for($i=0;$i<$len;$i++) {
+    			$temp_str=substr($str,0,1);
+    			if(ord($temp_str) > 128){
+    				$i++;
+    				if($i<$len){
+    					$new_str[]=substr($str,0,3);
+    					$str=substr($str,3);
+    				}
+    			}
+    			else {
+    				$new_str[]=substr($str,0,1);
+    				$str=substr($str,1);
+    			}
+    		}
+    		$new_str = join($new_str);
+    		if ($append && $str != $new_str){
+    			$new_str .= '...';
+    		}
+    		return $new_str;
+    	}else{
+    		return $str;
+    	}
+    }
+
 }
