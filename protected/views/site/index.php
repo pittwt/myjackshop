@@ -30,7 +30,7 @@
       	<ul>
         <?php foreach($article as $item):?>
         	<li>
-            	<div class="article_title"><?php echo $item->title;?></div>
+            	<div class="article_title"><?php echo l($item->title,array('site/info','id'=>$item->id));?></div>
                 <div class="article_info">
                 	<span class="left"><a href="#"><?php echo $item->category->name;?></a></span>
                     <span class="right">
@@ -92,7 +92,6 @@
         <!--/content -->
       </div>
       <!--/box -->
-      
       <?php $this->widget('FriendLinkSidebar');?>
     </div>
     <!--/rightcol -->

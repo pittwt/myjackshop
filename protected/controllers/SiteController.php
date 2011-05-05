@@ -28,9 +28,19 @@ class SiteController extends Controller
     /**
      * 文章详情
      */
-    public function actionView()
+    public function actionInfo()
     {
-        
+        if(isset($_GET['id']))
+        {
+            $article = Article::model()->with('user','category','comment','commentCount')->findByPk($_GET['id']);
+            //文章分类
+            $category = Category::getCategoryList();
+            
+    		$this->render('info', array(
+    			'article' => $article,
+                'category' => $category,
+    		));
+        }
     }
 
 	/**

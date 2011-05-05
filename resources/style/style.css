@@ -80,7 +80,7 @@ p { line-height:1.5em; padding:0 0 1.3em; }
 .social-links a:hover { text-decoration:underline; }
 /* post-commets */
 .post-commets { margin:0 10px 0 0; padding:5px 0; text-align:center; text-align:center; color:#fff; width:88px; height:30px; font:normal 12px/30px Arial, Helvetica, sans-serif; }
-.post-commets a { color:#fff; background:#000; text-decoration:none; text-align:center; padding:5px; font-weight:normal; }
+.post-commets a, .post-commets span { color:#fff; background:#000; text-decoration:none; text-align:center; padding:5px; font-weight:normal; }
 .post-commets a:hover { text-decoration:underline; }
 /*- Related Posts -*/
 /*- Post Date -*/
