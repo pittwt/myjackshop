@@ -29,6 +29,14 @@ class SiteController extends Controller
             'pages' => $pages
 		));
 	}
+    
+    /**
+     * 文章详情
+     */
+    public function actionView()
+    {
+        
+    }
 
 	/**
 	 * This is the action to handle external exceptions.

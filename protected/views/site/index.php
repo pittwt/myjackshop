@@ -2,30 +2,30 @@
   <!--/header -->
   <div id="columns">
     <div id="centercol">
-      <div class="box post" id="post-41">
+     <!-- <div class="box post" id="post-41">
         <div class="content">
           <div class="pic fl"><a href="#" rel="bookmark"><img src="<?php echo resBu()?>images/img_1.jpg" alt="Post Pic" width="234" height="234" /></a></div>
           <div class="post-title">
             <h2>HTML静态化</h2>
           </div>
-          <!--/post-title -->
+         
           <div class="social-links">
             <div class="post-date">On 02.05.09, In <a href="#">Tutorials, Preview, Tutorials, Preview, Tutorials, Preview</a> by <a href="#">TemplateAccess</a> </div>
-            <!--/post-date -->
+            
           </div>
-          <!--/social-links -->
+          
           <div class="post-excerpt">
             <p>　　其实大家都知道，效率最高、消耗最小的就是纯静态化的html页面，所以我们尽可能使我们的网站上的页面采用静态页面来实现，这个最简单的方法其实也是 最有效的方法。但是对于大量内容并且频繁更新的网站，我们无法全部手动去挨个实现，于是出现了我们常见的信息发布系统CMS，像我们常访问的各个门户站点 的新闻频道，甚至他们的其他频道，都是通过信息发布系统来管理和实现[...]</p>
           </div>
-          <!--/post-excerpt -->
+          
           <div class="clr"></div>
           <div class="post-commets"><a href="#" title="View Comments" class="font-sm">23 comments</a></div>
-          <!--/post-commets -->
+          
         </div>
-        <!--/content -->
+        
       </div>
-      <!--/box -->
-      <div class="clr"></div>
+      
+      <div class="clr"></div>-->
       <div class="article">
       	<ul>
         <?php foreach($article as $item):?>
@@ -85,7 +85,7 @@
         <div class="content">
           <ul class="rlist">
             <?php foreach($category as $item):?>
-                <li><?php echo $item['strpre'];?><a href="<?php echo $item['id'];?>"><?php echo $item['name'];?></a></li>
+                <li><?php echo $item['strpre'];?>&nbsp;<a href="<?php echo $item['id'];?>"><?php echo $item['name'];?></a></li>
             <?php endforeach;?>
             </ul>
         </div>
