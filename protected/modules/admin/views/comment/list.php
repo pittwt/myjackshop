@@ -20,11 +20,11 @@
                     <td><?php echo CHtml::encode($item->title);?></td>
                     <td><?php echo CHtml::encode($item->nick);?><br><?php echo CHtml::encode($item->email);?></td>
                     <td><?php echo CHtml::encode($item->article->title);?></td>
-                    <td><?php echo CHtml::encode($item->content);?></td>
+                    <td><?php echo CHtml::encode(GlobalTools::sub_str($item->content,40));?></td>
                     <td><?php echo CHtml::encode(date('Y-m-d H:i:s', $item->create_time));?></td>
                     <td>
-                        <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('comment/edit','id'=>$item['id']));?>
-                        <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('comment/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
+                        <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'" alt="修改">',array('comment/edit','id'=>$item['id']));?>
+                        <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'" alt="删除">', array('comment/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
                     </td>
                 </tr>
             <?php endforeach;?>
@@ -36,7 +36,7 @@
                         'firstPageLabel' => '首页',
                         'lastPageLabel' => '末页',
                         'nextPageLabel' => '下一页',
-                        'prevPageLabel' => '上一页',                     
+                        'prevPageLabel' => '上一页',            
                     ));?>
                 </div>
             </div>

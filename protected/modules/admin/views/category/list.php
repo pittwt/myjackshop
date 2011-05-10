@@ -17,11 +17,11 @@
                 <tr>
                     <td><input type="checkbox" name="flid[]"></td>
                     <td><?php echo CHtml::encode($item['strpre'].' '.$item['name']);?></td>
-                    <td><?php echo CHtml::encode($item['description']);?></td>
+                    <td><?php echo CHtml::encode(GlobalTools::sub_str($item['description'],40));?></td>
                     <td><?php echo CHtml::encode($item['articlecount']);?></td>
                     <td>
-                        <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('category/edit','id'=>$item['id']));?>
-                        <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('category/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
+                        <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'" alt="修改">',array('category/edit','id'=>$item['id']));?>
+                        <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'" alt="删除">', array('category/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
                     </td>
                 </tr>
             <?php endforeach;?>

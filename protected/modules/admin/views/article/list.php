@@ -19,11 +19,11 @@
                     <td><input type="checkbox" name="flid[]"></td>
                     <td><?php echo CHtml::encode($item->title);?></td>
                     <td><?php if(isset($item->category->name)){echo $item->category->name;}else{echo '未分类';}?></td>
-                    <td><?php echo substr($item->description, 0, 120);?></td>
+                    <td><?php echo GlobalTools::sub_str($item->description, 40);?></td>
                     <td><?php echo CHtml::encode($item->hits);?></td>
                     <td>
-                        <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'">',array('article/edit','id'=>$item['id']));?>
-                        <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'">', array('article/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
+                        <?php echo l('<img src="'.resBu("admin/images/icons/pencil.png").'" alt="修改">',array('article/edit','id'=>$item['id']));?>
+                        <?php echo l('<img src="'.resBu("admin/images/icons/cross.png").'" alt="删除">', array('article/del','id'=>$item['id']),array('class'=>'delete','confirm'=>'确定删除?'))?>
                     </td>
                 </tr>
             <?php endforeach;?>
