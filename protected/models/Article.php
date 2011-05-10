@@ -77,7 +77,7 @@ class Article extends CActiveRecord
 		return array(
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'area' => array(self::BELONGS_TO, 'Area', 'area_id'),
-			'category' => array(self::BELONGS_TO, 'Category', 'cat_id','condition'=>'category.id > 0'),
+			'category' => array(self::BELONGS_TO, 'Category', 'cat_id'),
 			'comment' => array(self::HAS_MANY, 'Comment', 'id'),
             'commentCount' => array(self::STAT, 'Comment', 'article_id'),
 		);

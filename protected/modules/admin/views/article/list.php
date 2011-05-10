@@ -18,7 +18,7 @@
                 <tr>
                     <td><input type="checkbox" name="flid[]"></td>
                     <td><?php echo CHtml::encode($item->title);?></td>
-                    <td><?php echo CHtml::encode($item->category->name);?></td>
+                    <td><?php if(isset($item->category->name)){echo $item->category->name;}else{echo '未分类';}?></td>
                     <td><?php echo substr($item->description, 0, 120);?></td>
                     <td><?php echo CHtml::encode($item->hits);?></td>
                     <td>
