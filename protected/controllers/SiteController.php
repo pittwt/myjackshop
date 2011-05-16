@@ -14,13 +14,9 @@ class SiteController extends Controller
         //文章
 		$article = Article::model()->with('category','commentCount')->findAll($criteria);
         
-        //文章分类
-        $category = Category::getCategoryList();
-        
         $this->pageTitle = 'My-yiicms';
 		$this->render('index', array(
 			'article' => $article,
-            'category' => $category,
             'pages' => $pages
 		));
 	}
@@ -33,12 +29,9 @@ class SiteController extends Controller
         if(isset($_GET['id']))
         {
             $article = Article::model()->with('user','category','comment','commentCount')->findByPk($_GET['id']);
-            //文章分类
-            $category = Category::getCategoryList();
             
     		$this->render('info', array(
     			'article' => $article,
-                'category' => $category,
     		));
         }
     }
