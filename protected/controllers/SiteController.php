@@ -29,7 +29,11 @@ class SiteController extends Controller
         if(isset($_GET['id']))
         {
             $article = Article::model()->with('user','category','comment','commentCount')->findByPk($_GET['id']);
-            
+            $comment = new Comment();
+            if(isset($_POST['Comment']))
+            {
+                $comment->attributes = $_POST['Comment'];
+            }
     		$this->render('info', array(
     			'article' => $article,
     		));
